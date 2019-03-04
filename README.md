@@ -11,7 +11,7 @@ Abstract
 
 In 2005, England changed from universal Bacillus Calmette–Guérin (BCG) vaccination of school-age children to targeted BCG vaccination of high-risk children at birth.
 
-### Methods
+#### Methods
 
 We combined notification data from the Enhanced Tuberculosis Surveillance system, with demographic data from the Labour Force Survey to construct retrospective cohorts of individuals in England relevant to both the universal, and targeted vaccination programmes between Jan 1, 2000 and Dec 31, 2010. For each cohort, we estimated incidence rates over a 5 year follow-up period and used Poisson and Negative Binomial regression models in order to estimate the impact of the change in policy on TB.
 
@@ -21,7 +21,7 @@ In the non-UK born, we found evidence for an association between a reduction in 
 
 ### Conclusions
 
-The change in BCG policy was associated with reduced incidence of TB in the study population. This was largely driven by reductions in the non-UK born. There was a slight increase in those at school-age, who were UK born.
+Withdrawing universal vaccination at school-age and targeting BCG vaccination towards high-risk neonates was associated with reduced incidence of TB in England. This was largely driven by reductions in the non-UK born. There was a slight increase in UK born school-age cases.
 
 Reproducibility
 ---------------
