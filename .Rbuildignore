@@ -12,4 +12,5 @@
 ^packrat/
 ^\.Rprofile$
 ^_pkgdown\.yml$
-^binder
+^binder$
+^pee-review$
