@@ -1,0 +1,22 @@
+---
+title: ""
+output:
+   html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Dear Editor,
+
+Please find attached our manuscript, entitled "Estimating the effect of the 2005 change in BCG policy in England: A retrospective cohort study". 
+
+We feel our manuscript will be of interest to you and the journal's readership because Bacillus Calmette-Guérin (BCG) is one of the most widely-used vaccines worldwide and our study explores the impact of changing BCG vaccination policy. We found evidence to suggest that withdrawing universal vaccination at school-age and targeting BCG vaccination towards high-risk neonates was associated with reduced incidence of Tuberculosis (TB) in England. These findings provide support for current World Health Organization recommendations. We further found that the reduced incidence in TB was largely driven by reductions in the non-UK born, with a slight increase in UK born school-age cases. Our study benefits from the use of data from the Enhanced Tuberculosis surveillance system, which contains demographic data on active TB cases in England. We made use of Poisson and Negative Binomial regression models, with imputed UK birth status, in order to estimate the impact of the change in policy on TB.
+
+We do not have any issues relating to the journal policies. All authors have approved this version of the manuscript for submission and the content of the manuscript has not been published or submitted elsewhere.
+
+With kind regards, on behalf of all the co-authors,
+
+Sam Abbott

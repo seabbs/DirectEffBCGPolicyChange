@@ -4,6 +4,8 @@ Estimating the effect of the 2005 change in BCG policy in England: A retrospecti
 
 [![Documentation](https://img.shields.io/badge/Documentation-click%20here!-lightgrey.svg?style=flat)](https://www.samabbott.co.uk/DirectEffBCGPolicyChange) [![badge](https://img.shields.io/badge/Launch-Analysis-lightblue.svg)](https://mybinder.org/v2/gh/seabbs/DirectEffBCGPolicyChange/master?urlpath=rstudio) [![DOI](https://zenodo.org/badge/173767331.svg)](https://zenodo.org/badge/latestdoi/173767331)
 
+[Sam Abbott](https://www.samabbott.co.uk), Hannah Christensen, Nicky Welton, Ellen Brooks-Pollock
+
 Abstract
 --------
 
@@ -34,10 +36,11 @@ The repository is structured as an R package. It has the following structure:
 -   \*\*<data:**> Processed data.
 -   **R:** Supporting R functions
 -   **vignettes:** Analysis paper and results.
+-   **peer-review** Documentation required for peer review.
 
 ### Manual install
 
--   Install R (analysis run with `3.5.2`) and Rstudio.
+-   Install R (analysis run with `3.5.2`) and Rstudio (altnernatively use Docker as outlined below).
 
 -   Download the analysis folder from <https://github.com/seabbs/DirectEffBCGPolicyChange/archive/master.zip> or use `git clone`, as follows, in the command line (not the R terminal).
 
