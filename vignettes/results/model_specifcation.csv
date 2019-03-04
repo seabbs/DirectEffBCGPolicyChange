@@ -1,0 +1,25 @@
+Model,Family,1,PolicyChange,UKRate,NonUKRate,YrsFollowUp,(1 | YearEligib),log(Population),Description
+Model 1,Poisson,Yes,No,No,No,No,No,Yes,Poisson model adjusting for no fixed effects.
+Model 2,Poisson,No,Yes,No,No,No,No,Yes,"Poisson model adjusting with fixed effects for 
+                          the change in policy."
+Model 3,Poisson,No,Yes,Yes,No,No,No,Yes,Poisson model adjusting with fixed effects for the change in policy and incidence rates in the UK born.
+Model 4,Poisson,No,Yes,No,Yes,No,No,Yes,Poisson model adjusting with fixed effects for the change in policy and incidence rates in the non-UK born.
+Model 5,Poisson,No,Yes,Yes,Yes,No,No,Yes,Poisson model adjusting with fixed effects for the change in policy and incidence rates in the UK born and non-UK born populations.
+Model 6,Poisson,No,Yes,No,No,Yes,No,Yes,Poisson model adjusting with fixed effects for the change in policy and age.
+Model 7,Poisson,No,Yes,Yes,No,Yes,No,Yes,"Poisson model adjusting with fixed effects for the change in policy, age, and incidence rates in the UK born."
+Model 7 (Negative Binomial),Negative binomial,No,Yes,Yes,No,Yes,No,Yes,"Negative binomial model adjusting with fixed effects for the change in policy, age, and incidence rates in the UK born."
+Model 8,Poisson,No,Yes,No,Yes,Yes,No,Yes,"Poisson model adjusting with fixed effects for the change in policy, age, and incidence rates in the non-UK born."
+Model 8 (Negative Binomial),Negative binomial,No,Yes,No,Yes,Yes,No,Yes,"Negative binomial model adjusting with fixed effects for the change in policy, age, and incidence rates in the non-UK born."
+Model 9,Poisson,No,Yes,Yes,Yes,Yes,No,Yes,"Poisson model adjusting with fixed effects for the change in policy, age, and incidence rates in the UK born and non-UK born populations."
+Model 10,Poisson,No,No,No,No,No,Yes,Yes,"Poisson model with a random intercept for year of study entry, adjusting for no fixed effects."
+Model 11,Poisson,No,Yes,No,No,No,Yes,Yes,"Poisson model with a random intercept for year of study entry, adjusting with fixed effects for 
+                          the change in policy."
+Model 12,Poisson,No,Yes,Yes,No,No,Yes,Yes,"Poisson model with a random intercept for year of study entry, adjusting with fixed effects for the change in policy and incidence rates in the UK born."
+Model 13,Poisson,No,Yes,No,Yes,No,Yes,Yes,"Poisson model with a random intercept for year of study entry, adjusting with fixed effects for the change in policy and incidence rates in the non-UK born."
+Model 14,Poisson,No,Yes,Yes,Yes,No,Yes,Yes,"Poisson model with a random intercept for year of study entry, adjusting with fixed effects for the change in policy and incidence rates in the UK born and non-UK born populations."
+Model 15,Poisson,No,Yes,No,No,Yes,Yes,Yes,"Poisson model with a random intercept for year of study entry, adjusting with fixed effects for the change in policy and age."
+Model 16,Poisson,No,Yes,Yes,No,Yes,Yes,Yes,"Poisson model with a random intercept for year of study entry, adjusting with fixed effects for the change in policy, age, and incidence rates in the UK born."
+Model 16 (Negative Binomial),Negative binomial,No,Yes,Yes,No,Yes,Yes,Yes,"Negative binomial model with a random intercept for year of study entry, adjusting with fixed effects for the change in policy, age, and incidence rates in the UK born."
+Model 17,Poisson,No,Yes,No,Yes,Yes,Yes,Yes,"Poisson model with a random intercept for year of study entry, adjusting with fixed effects for the change in policy, age, and incidence rates in the non-UK born."
+Model 17 (Negative Binomial),Negative binomial,No,Yes,No,Yes,Yes,Yes,Yes,"Negative binomial model with a random intercept for year of study entry, adjusting with fixed effects for the change in policy, age, and incidence rates in the non-UK born."
+Model 18,Poisson,No,Yes,Yes,Yes,Yes,Yes,Yes,"Poisson model with a random intercept for year of study entry, adjusting with fixed effects for the change in policy, age, and incidence rates in the UK born and non-UK born populations."

@@ -1,0 +1,23 @@
+title: "Estimating the effect of the 2005 change in BCG policy in England"
+url: https://samabbott.co.uk/DirectEffBCGPolicyChange
+template:
+  params:
+    bootswatch: lumen
+
+
+navbar:
+  type: inverse
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Paper + SI"
+      href: articles/paper.html
+ 
+  right:
+    - icon: fa-file-code-o 
+      text: "Functions"
+      href: reference/index.html
+    - icon: fa-github fa-lg
+      text: "Github"
+      href: https://github.com/seabbs/DirectEffBCGPolicyChange
+      

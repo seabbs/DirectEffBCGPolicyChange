@@ -1,0 +1,48 @@
+Package: DirectEffBCGPolicyChange
+Type: Package
+Version: 0.1.0
+Title: Estimating the direct effect of the 2005 UK BCG vaccination policy change.
+Authors@R: c(person("Sam Abbott", role = c("aut", "cre"),
+                     email = "contact@samabbott.co.uk",
+                     comment = c(ORCID = "0000-0001-8057-8037")))
+Description: The Bacillus Calmette–Guérin (BCG) vaccine is the mostly widely used vaccine globally, however its efficacy remains contentious. In 2005, England changed from universal vaccination of school-age children to targeted vaccination of high-risk children at birth, identified by local Tuberculosis (TB) incidence and by the parents’ country of origin. The impact of this policy change has not been evaluated. 
+License: MIT | file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 3.2.0),
+    Rcpp (>= 0.12.0)
+Imports: magrittr,
+    dplyr,
+    ggplot2,
+    scales,
+    broom,
+    stringr,
+    rstan,
+    shinystan,
+    brms,
+    haven, 
+    epiR, 
+    prettypublisher,
+    tbinenglanddataclean,
+    purrr,
+    tibble
+Suggests: testthat,
+    devtools,
+    pkgdown,
+    knitr,
+    rmarkdown,
+    tidyverse,
+    pomp,
+    pander,
+    flextable,
+    h2o
+Remotes: seabbs/prettypublisher,
+    seabbs/tbinenglanddataclean,
+    r-lib/pkgdown
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+URL: http://www.samabbott.co.uk/DirectEffBCGPolicyChange,
+        https://github.com/seabbs/DirectEffBCGPolicyChange
+BugReports: https://github.com/seabbs/DirectEffBCGPolicyChange/issues
+VignetteBuilder: knitr

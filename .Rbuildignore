@@ -1,0 +1,15 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+^README\.Rmd$
+^README-.*\.png$
+^\.travis\.yml$
+^docs$
+^vignettes/drafts$
+^Makefile$
+^vignettes/Makefile$
+^Dockerfile$
+^packrat/
+^\.Rprofile$
+^_pkgdown\.yml$
+^binder

@@ -1,0 +1,12 @@
+version: '3'
+services:
+  directeffbcgpolicychange:
+    container_name: directeffbcgpolicychange
+    image: seabbs/directeffbcgpolicychange
+    ports:
+      - 8787:8787
+    environment:
+      - USER=seabbs
+      - PASSWORD=seabbs
+    volumes:
+      - ./data/tb_data:/home/rstudio/DirectEffBCGPolicyChange/data-raw/tb_data
