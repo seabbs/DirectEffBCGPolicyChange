@@ -26,8 +26,46 @@ The change in BCG policy was associated with reduced incidence of TB in the stud
 Reproducibility
 ---------------
 
-Docker
-------
+### Repository structure
+
+The repository is structured as an R package. It has the following structure:
+
+-   **data-raw:** Raw data processing.
+-   \*\*<data:**> Processed data.
+-   **R:** Supporting R functions
+-   **vignettes:** Analysis paper and results.
+
+### Manual install
+
+-   Install R (analysis run with `3.5.2`) and Rstudio.
+
+-   Download the analysis folder from <https://github.com/seabbs/DirectEffBCGPolicyChange/archive/master.zip> or use `git clone`, as follows, in the command line (not the R terminal).
+
+``` bash
+git clone https://github.com/seabbs/DirectEffBCGPolicyChange.git
+```
+
+-   Once this has been downloaded click on the project file (`DirectEffBCGPolicyChange.Rproj`).
+
+-   Install the analysis dependencies and build the package using the following. To enable more robust reproducibility consider using the [`checkpoint`](https://cran.r-project.org/web/packages/checkpoint/index.html) package versioned locked to R `3.5.2`.
+
+``` r
+
+#install.packages("devtools")
+
+# To build locally
+devtools::install_dev_deps(dependencies = TRUE)
+devtools::install()
+
+# Alternatively to remote install
+devtools::install_github("seabbs/DirectEffBCGPolicyChange", dependencies = TRUE)
+```
+
+-   Load the analysis results by running `vignettes/paper.Rmd`. The complete analysis is not reproducible as the raw data cannot be published, however all interim results are stored in the repository (`data`) and these can be explored.
+
+-   Alternatively the complete analysis (along with documentation) can be reconstructed using `make` in the project root directory.
+
+### Docker
 
 This analysis was developed in a docker container based on the tidyverse docker image. To run the docker image run:
 
@@ -42,3 +80,5 @@ If you have access to the required underlying raw data then the entire analysis 
 ``` bash
 --mount type=bind,source=$(pwd)/data/tb_data,target=/home/DirectEffBCGPolicyChange/data/tb_data
 ```
+
+Alternatively the analysis environment can be accessed via [binder](https://mybinder.org/v2/gh/seabbs/DirectEffBCGPolicyChange/master?urlpath=rstudio).

@@ -758,7 +758,7 @@ HC reports receiving honoraria from Sanofi Pasteur, and consultancy fees from As
 
 **Accessibility of data and programming code**
 The code used to clean the data used in this paper can be found at: DOI:10.5281/zenodo.2551555
-The code for the analysis contained in this paper can be found at:  *link not yet available*
+The code for the analysis contained in this paper can be found at: DOI:10.5281/zenodo.2583056
 
 **Results** *copy to top of paper*
 
