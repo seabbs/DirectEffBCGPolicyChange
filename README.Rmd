@@ -42,15 +42,15 @@ Withdrawing universal vaccination at school-age and targeting BCG vaccination to
 
 The repository is structured as an R package. It has the following structure:
 
-- **data-raw:** Raw data processing.
-- **data:** Processed data.
-- **R:** Supporting R functions
-- **vignettes:** Analysis paper and results.
-- **peer-review** Documentation required for peer review.
+- `data-raw`: Raw data processing.
+- `data`: Processed data.
+- `R`: Supporting R functions.
+- `vignettes`: Analysis paper and results.
+- `peer-review`: Documentation required for peer review.
 
 ### Manual install
 
-- Install R (analysis run with `3.5.2`) and Rstudio (altnernatively use Docker as outlined below).
+- Install R (analysis run with `3.5.2`) and Rstudio (alternatively use Docker as outlined below).
 
 - Download the analysis folder from [https://github.com/seabbs/DirectEffBCGPolicyChange/archive/master.zip](https://github.com/seabbs/DirectEffBCGPolicyChange/archive/master.zip) or use `git clone`, as follows, in the command line (not the R terminal).
 
@@ -74,9 +74,7 @@ devtools::install()
 devtools::install_github("seabbs/DirectEffBCGPolicyChange", dependencies = TRUE)
 ```
 
-- Load the analysis results by running `vignettes/paper.Rmd`. The complete analysis is not reproducible as the raw data cannot be published, however all interim results are stored in the repository (`data`) and these can be explored. 
-
-- Alternatively the complete analysis (along with documentation) can be reconstructed using `make` in the project root directory. 
+- Load the analysis results by running `vignettes/paper.Rmd`. The complete analysis is not reproducible as the raw data cannot be published, however all interim results are stored in the repository (`data`) and these can be explored. Alternatively the complete analysis (along with documentation) can be reconstructed using `make` in the project root directory. 
 
 ### Docker
 
