@@ -38,8 +38,7 @@ Suggests: testthat,
     flextable,
     h2o
 Remotes: seabbs/prettypublisher,
-    seabbs/tbinenglanddataclean,
-    r-lib/pkgdown
+    seabbs/tbinenglanddataclean
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 URL: http://www.samabbott.co.uk/DirectEffBCGPolicyChange,
