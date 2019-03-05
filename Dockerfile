@@ -16,7 +16,7 @@ ADD . /home/rstudio/DirectEffBCGPolicyChange
 
 WORKDIR /home/rstudio/DirectEffBCGPolicyChange
 
-RUN Rscript -e 'devtools::install_dev_deps(".", dependencies = TRUE)'
+RUN Rscript -e 'devtools::install_dev_deps(".")'
 
 RUN Rscript -e 'devtools::install(".")'
 
