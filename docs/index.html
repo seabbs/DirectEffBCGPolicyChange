@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">Estimating the effect of the 2005 change in BCG policy in England</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -76,23 +76,88 @@
 <div id="estimating-the-effect-of-the-2005-change-in-bcg-policy-in-england-a-retrospective-cohort-study" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#estimating-the-effect-of-the-2005-change-in-bcg-policy-in-england-a-retrospective-cohort-study" class="anchor"></a>Estimating the effect of the 2005 change in BCG policy in England: A retrospective cohort study</h1></div>
-<p><strong>Background</strong></p>
+
+<p><a href="https://www.samabbott.co.uk">Sam Abbott</a>, Hannah Christensen, Nicky Welton, Ellen Brooks-Pollock</p>
+<div id="abstract" class="section level2">
+<h2 class="hasAnchor">
+<a href="#abstract" class="anchor"></a>Abstract</h2>
+<div id="background" class="section level3">
+<h3 class="hasAnchor">
+<a href="#background" class="anchor"></a>Background</h3>
 <p>In 2005, England changed from universal Bacillus Calmette–Guérin (BCG) vaccination of school-age children to targeted BCG vaccination of high-risk children at birth.</p>
-<p><strong>Methods</strong></p>
+<div id="methods" class="section level4">
+<h4 class="hasAnchor">
+<a href="#methods" class="anchor"></a>Methods</h4>
 <p>We combined notification data from the Enhanced Tuberculosis Surveillance system, with demographic data from the Labour Force Survey to construct retrospective cohorts of individuals in England relevant to both the universal, and targeted vaccination programmes between Jan 1, 2000 and Dec 31, 2010. For each cohort, we estimated incidence rates over a 5 year follow-up period and used Poisson and Negative Binomial regression models in order to estimate the impact of the change in policy on TB.</p>
-<p><strong>Results:</strong></p>
-<p>In the non-UK born, we found evidence for an association between a reduction in incidence rates and the change in BCG policy (school-age IRR: 0.74 (95%CI 0.61, 0.88), neonatal IRR: 0.62 (95%CI 0.44, 0.88)). We found some evidence that the change in BCG policy was associated with a increase in incidence rates in the UK born school-age population (IRR: 1.08 (95%CI 0.97, 1.19)) and weaker evidence of an association with a reduction in incidence rates in UK born neonates (IRR: 0.96 (95%CI 0.82, 1.14)). Overall, we found that the change in BCG policy was associated with directly preventing 385 (95% CI -105, 881) TB cases.</p>
-<p><strong>Conclusions</strong></p>
-<p>The change in BCG policy was associated with reduced incidence of TB in the study population. This was largely driven by reductions in the non-UK born. There was a slight increase in those at school-age, who were UK born.</p>
 </div>
-<div id="docker" class="section level1">
-<h1 class="hasAnchor">
-<a href="#docker" class="anchor"></a>Docker</h1>
+</div>
+<div id="results" class="section level3">
+<h3 class="hasAnchor">
+<a href="#results" class="anchor"></a>Results</h3>
+<p>In the non-UK born, we found evidence for an association between a reduction in incidence rates and the change in BCG policy (school-age IRR: 0.74 (95%CI 0.61, 0.88), neonatal IRR: 0.62 (95%CI 0.44, 0.88)). We found some evidence that the change in BCG policy was associated with a increase in incidence rates in the UK born school-age population (IRR: 1.08 (95%CI 0.97, 1.19)) and weaker evidence of an association with a reduction in incidence rates in UK born neonates (IRR: 0.96 (95%CI 0.82, 1.14)). Overall, we found that the change in BCG policy was associated with directly preventing 385 (95% CI -105, 881) TB cases.</p>
+</div>
+<div id="conclusions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#conclusions" class="anchor"></a>Conclusions</h3>
+<p>Withdrawing universal vaccination at school-age and targeting BCG vaccination towards high-risk neonates was associated with reduced incidence of TB in England. This was largely driven by reductions in the non-UK born. There was a slight increase in UK born school-age cases.</p>
+</div>
+</div>
+<div id="reproducibility" class="section level2">
+<h2 class="hasAnchor">
+<a href="#reproducibility" class="anchor"></a>Reproducibility</h2>
+<div id="repository-structure" class="section level3">
+<h3 class="hasAnchor">
+<a href="#repository-structure" class="anchor"></a>Repository structure</h3>
+<p>The repository is structured as an R package. It has the following structure:</p>
+<ul>
+<li>
+<code>data-raw</code>: Raw data processing.</li>
+<li>
+<code>data</code>: Processed data.</li>
+<li>
+<code>R</code>: Supporting R functions.</li>
+<li>
+<code>vignettes</code>: Analysis paper and results.</li>
+<li>
+<code>peer-review</code>: Documentation required for peer review.</li>
+</ul>
+</div>
+<div id="manual-install" class="section level3">
+<h3 class="hasAnchor">
+<a href="#manual-install" class="anchor"></a>Manual install</h3>
+<ul>
+<li><p>Install R (analysis run with <code>3.5.0</code>) and Rstudio (alternatively use Docker as outlined below).</p></li>
+<li><p>Download the analysis folder from <a href="https://github.com/seabbs/DirectEffBCGPolicyChange/archive/master.zip" class="uri">https://github.com/seabbs/DirectEffBCGPolicyChange/archive/master.zip</a> or use <code>git clone</code>, as follows, in the command line (not the R terminal).</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> clone https://github.com/seabbs/DirectEffBCGPolicyChange.git</code></pre></div>
+<ul>
+<li><p>Once this has been downloaded click on the project file (<code>DirectEffBCGPolicyChange.Rproj</code>).</p></li>
+<li><p>Install the analysis dependencies and build the package using the following. To enable more robust reproducibility consider using the <a href="https://cran.r-project.org/web/packages/checkpoint/index.html"><code>checkpoint</code></a> package versioned locked to R <code>3.5.0</code>.</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co">#install.packages("devtools")</span>
+
+<span class="co"># To build locally</span>
+devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/install_deps">install_dev_deps</a></span>(<span class="dt">dependencies =</span> <span class="ot">TRUE</span>)
+devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/install">install</a></span>()
+
+<span class="co"># Alternatively to remote install</span>
+devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"seabbs/DirectEffBCGPolicyChange"</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<ul>
+<li>Load the analysis results by running <code>vignettes/paper.Rmd</code>. The complete analysis is not reproducible as the raw data cannot be published, however all interim results are stored in the repository (<code>data</code>) and these can be explored. Alternatively the complete analysis (along with documentation) can be reconstructed using <code>make</code> in the project root directory.</li>
+</ul>
+</div>
+<div id="docker" class="section level3">
+<h3 class="hasAnchor">
+<a href="#docker" class="anchor"></a>Docker</h3>
 <p>This analysis was developed in a docker container based on the tidyverse docker image. To run the docker image run:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> run -d -p 8787:8787 --name DirectEffBCGPolicyChange -e USER=DirectEffBCGPolicyChange -e PASSWORD=DirectEffBCGPolicyChange seabbs/directeffbcgpolicychange</code></pre></div>
 <p>The rstudio client can be found on port :8787 at your local machines ip. The default username:password is DirectEffBCGPolicyChange:DirectEffBCGPolicyChange, set the user with -e USER=username, and the password with - e PASSWORD=newpasswordhere. The default is to save the analysis files into the user directory.</p>
 <p>If you have access to the required underlying raw data then the entire analysis can be reproduced from scratch by adding the following to the <code>docker run</code> command, with the data saved into <code>data/tb_data</code>. The data requirements, and structure, can be found <a href="https://www.samabbott.co.uk/tbinenglanddataclean/">here</a>.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">--mount</span> type=bind,source=<span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/data/tb_data,target=/home/DirectEffBCGPolicyChange/data/tb_data</code></pre></div>
+<p>Alternatively the analysis environment can be accessed via <a href="https://mybinder.org/v2/gh/seabbs/DirectEffBCGPolicyChange/master?urlpath=rstudio">binder</a>.</p>
+</div>
+</div>
 </div>
   </div>
 
@@ -121,7 +186,15 @@
 </ul>
 </div>
 
-      </div>
+      <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://www.samabbott.co.uk/DirectEffBCGPolicyChange"><img src="https://img.shields.io/badge/Documentation-click%20here!-lightgrey.svg?style=flat" alt="Documentation"></a></li>
+<li><a href="https://mybinder.org/v2/gh/seabbs/DirectEffBCGPolicyChange/master?urlpath=rstudio"><img src="https://img.shields.io/badge/Launch-Analysis-lightblue.svg" alt="badge"></a></li>
+<li><a href="https://zenodo.org/badge/latestdoi/173767331"><img src="https://zenodo.org/badge/173767331.svg" alt="DOI"></a></li>
+</ul>
+</div>
+</div>
 
 </div>
 
@@ -131,7 +204,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
 </div>
       </footer>
 </div>

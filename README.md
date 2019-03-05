@@ -40,7 +40,7 @@ The repository is structured as an R package. It has the following structure:
 
 ### Manual install
 
--   Install R (analysis run with `3.5.2`) and Rstudio (alternatively use Docker as outlined below).
+-   Install R (analysis run with `3.5.0`) and Rstudio (alternatively use Docker as outlined below).
 
 -   Download the analysis folder from <https://github.com/seabbs/DirectEffBCGPolicyChange/archive/master.zip> or use `git clone`, as follows, in the command line (not the R terminal).
 
@@ -50,7 +50,7 @@ git clone https://github.com/seabbs/DirectEffBCGPolicyChange.git
 
 -   Once this has been downloaded click on the project file (`DirectEffBCGPolicyChange.Rproj`).
 
--   Install the analysis dependencies and build the package using the following. To enable more robust reproducibility consider using the [`checkpoint`](https://cran.r-project.org/web/packages/checkpoint/index.html) package versioned locked to R `3.5.2`.
+-   Install the analysis dependencies and build the package using the following. To enable more robust reproducibility consider using the [`checkpoint`](https://cran.r-project.org/web/packages/checkpoint/index.html) package versioned locked to R `3.5.0`.
 
 ``` r
 
