@@ -4,8 +4,7 @@
 \alias{best_fit_results_table}
 \title{Function to generate results table}
 \usage{
-best_fit_results_table(df, Scheme, Pop, sep = ", ",
-  model_to_select = 1)
+best_fit_results_table(df, Scheme, Pop, sep = ", ", model_to_select = 1)
 }
 \arguments{
 \item{df}{A dataframe of model results}

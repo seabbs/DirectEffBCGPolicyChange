@@ -5,11 +5,11 @@
 \title{Fit and summarise models}
 \usage{
 fit_stan_models(ModelReadyDataSpec, PreCompile = TRUE,
-  BaseLineModelsNames = NULL, FileName = "ModelResults",
-  SubFiles = 4, Folder = "results", Path = ".",
-  ReRunAnalysis = FALSE, verbose = TRUE, Cores = NULL,
-  Iterations = 10000, BurnIn = 5000, Alpha = 0.99, Treedepth = 10,
-  UpdateAlpha = 0.99999, HandleDLLs = FALSE, UpdateTreedepth = 20)
+  BaseLineModelsNames = NULL, FileName = "ModelResults", SubFiles = 4,
+  Folder = "results", Path = ".", ReRunAnalysis = FALSE, verbose = TRUE,
+  Cores = NULL, Iterations = 10000, BurnIn = 5000, Alpha = 0.99,
+  Treedepth = 10, UpdateAlpha = 0.99999, HandleDLLs = FALSE,
+  UpdateTreedepth = 20)
 }
 \arguments{
 \item{ModelReadyDataSpec}{A dataframe of data ready for modelling}

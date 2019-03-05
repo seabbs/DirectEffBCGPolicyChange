@@ -4,8 +4,7 @@
 \alias{capture_stan_DLLs}
 \title{Function to print the number of stan models loaded as DLLs and return their names}
 \usage{
-capture_stan_DLLs(verbose = TRUE, StanFileNames = "file",
-  MaxDLLs = 100)
+capture_stan_DLLs(verbose = TRUE, StanFileNames = "file", MaxDLLs = 100)
 }
 \arguments{
 \item{verbose}{Logical, defaults to \code{TRUE}. If \code{TRUE} the number of loaded stan

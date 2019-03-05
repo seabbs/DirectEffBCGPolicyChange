@@ -4,10 +4,9 @@
 \alias{Base_Model}
 \title{Generic BRM model with fitting defaults set}
 \usage{
-Base_Model(Predictors = NULL, ModelFamily, Data = NULL,
-  SetIter = NULL, SetBurn = NULL, SetCores = NULL, Chains = 4,
-  SetThin = 1, Silent = TRUE, SaveModel = TRUE, AdaptDelta = NULL,
-  MaxTree = NULL)
+Base_Model(Predictors = NULL, ModelFamily, Data = NULL, SetIter = NULL,
+  SetBurn = NULL, SetCores = NULL, Chains = 4, SetThin = 1,
+  Silent = TRUE, SaveModel = TRUE, AdaptDelta = NULL, MaxTree = NULL)
 }
 \arguments{
 \item{Predictors}{A character vector of variables to use as features}

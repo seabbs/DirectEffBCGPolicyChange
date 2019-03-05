@@ -12,8 +12,8 @@ knitr::opts_chunk$set(
 
 # Estimating the effect of the 2005 change in BCG policy in England: A retrospective cohort study
 
-[![Documentation](https://img.shields.io/badge/Documentation-click here!-lightgrey.svg?style=flat)](https://www.samabbott.co.uk/DirectEffBCGPolicyChange)
 [![badge](https://img.shields.io/badge/Launch-Analysis-lightblue.svg)](https://mybinder.org/v2/gh/seabbs/DirectEffBCGPolicyChange/master?urlpath=rstudio)
+[![Documentation](https://img.shields.io/badge/Documentation-click here!-lightgrey.svg?style=flat)](https://www.samabbott.co.uk/DirectEffBCGPolicyChange)
 [![DOI](https://zenodo.org/badge/173767331.svg)](https://zenodo.org/badge/latestdoi/173767331)
 
 [Sam Abbott](https://www.samabbott.co.uk), Hannah Christensen, Nicky Welton, Ellen Brooks-Pollock
