@@ -4,3 +4,6 @@
 inst/doc
 data-raw/tb_data
 packrat/lib*/
+.cache
+.local
+.rstudio
