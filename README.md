@@ -2,7 +2,7 @@
 Estimating the effect of the 2005 change in BCG policy in England: A retrospective cohort study
 ===============================================================================================
 
-[![badge](https://img.shields.io/badge/Launch-Analysis-lightblue.svg)](https://mybinder.org/v2/gh/seabbs/DirectEffBCGPolicyChange/master?urlpath=rstudio) [![Documentation](https://img.shields.io/badge/Documentation-click%20here!-lightgrey.svg?style=flat)](https://www.samabbott.co.uk/DirectEffBCGPolicyChange) [![DOI](https://zenodo.org/badge/173767331.svg)](https://zenodo.org/badge/latestdoi/173767331)
+[![badge](https://img.shields.io/badge/Launch-Analysis-lightblue.svg)](https://mybinder.org/v2/gh/seabbs/DirectEffBCGPolicyChange/master?urlpath=rstudio) [![Documentation](https://img.shields.io/badge/Documentation-click%20here!-lightgrey.svg?style=flat)](https://www.samabbott.co.uk/DirectEffBCGPolicyChange) [![Paper](https://img.shields.io/badge/Paper-10.1101/567511-lightgreen.svg)](https://doi.org/10.1101/567511) [![DOI](https://zenodo.org/badge/173767331.svg)](https://zenodo.org/badge/latestdoi/173767331)
 
 [Sam Abbott](https://www.samabbott.co.uk), Hannah Christensen, Nicky Welton, Ellen Brooks-Pollock
 
