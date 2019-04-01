@@ -48,6 +48,13 @@ get_best_model_fit <- TRUE
 ## plot theme
 PaperTheme <- theme_minimal
 
+## Saving formatted results
+save_formated <- function(df, name) {
+  path <- file.path("formated-results", paste0(name, ".rds"))
+  
+  saveRDS(df, path)
+}
+
 ## Journal options for functions.
 pretty_per_effect <- partial(prettypublisher::pretty_per_effect, sep = ", ", note = "95%CI ")
 ```
@@ -150,12 +157,13 @@ data_frame(`Cohort` = c("Cohort 1", "Comparison cohort 1", "Cohort 1", "Comparis
            `Age at study entry` = c(rep(14, 4), rep("Birth", 4)),
            `Year of study entry` = c(rbind(rep("2000-2004", 4), rep("2005-2010", 4)))
 ) %>% 
-  arrange(desc(`Vaccination programme`)) %>% 
-    pretty_table(label = "DefCohorts",
-                 caption = "Summary of relevance and eligibility criteria for each cohort.",
-                 footer = "* Eligible signifies that the cohort fit the criteria for the programme and entered the study during the time period it was in operation not that the cohort was vaccinated by the programme.",
-                 split.table = 150,
-                 justify = justify_char_numeric(ncol(.), Character = 1:4, Numeric = 5:6))
+  arrange(desc(`Vaccination programme`))  %T>%
+  save_formated("cohorts") %>% 
+  pretty_table(label = "DefCohorts",
+               caption = "Summary of relevance and eligibility criteria for each cohort.",
+               footer = "* Eligible signifies that the cohort fit the criteria for the programme and entered the study during the time period it was in operation not that the cohort was vaccinated by the programme.",
+              split.table = 150,
+              justify = justify_char_numeric(ncol(.), Character = 1:4, Numeric = 5:6))
 
 ```
 
@@ -423,16 +431,20 @@ Models %>% rowwise %>%
 
 ```{r model tables, message = FALSE, warning = FALSE}
 ModelComTargetedUKBorn <- model_comparison(Models, Scheme = "Targeted high-risk neonates (0)",
-                                           Pop = "UK born")
+                                           Pop = "UK born") %T>%
+  save_formated("summmary-targeted-ukborn")
 
 ModelComUniversalUKBorn <- model_comparison(Models, Scheme = "Universal school-age (14)",
-                                            Pop = "UK born")
+                                            Pop = "UK born") %T>%
+  save_formated("summmary-universal-ukborn")
 
 ModelComTargetedNonUKBorn <- model_comparison(Models, Scheme = "Targeted high-risk neonates (0)", 
-                                              Pop = "Non-UK born")
+                                              Pop = "Non-UK born") %T>%
+  save_formated("summmary-targeted-nonukborn")
 
 ModelComUniversalNonUKBorn <- model_comparison(Models, Scheme = "Universal school-age (14)", 
-                                               Pop = "Non-UK born")
+                                               Pop = "Non-UK born") %T>%
+  save_formated("summmary-universal-nonukborn")
 ```
 
 
@@ -495,14 +507,18 @@ FitTargetedNonUKBorn <- bake(file = file.path("results/BestTargetedNonUKBorn.rds
 })
 
 ## Combine model summary and fitted models
-BestFitTargetedUKBorn <- c(BestFitTargetedUKBorn, FitTargetedUKBorn)
+BestFitTargetedUKBorn <- c(BestFitTargetedUKBorn, FitTargetedUKBorn) %T>%
+  save_formated("best-targeted-ukborn")
 
-BestFitUniversalUKBorn <- c(BestFitUniversalUKBorn, FitUniversalUKBorn)
+BestFitUniversalUKBorn <- c(BestFitUniversalUKBorn, FitUniversalUKBorn) %T>%
+  save_formated("best-universal-ukborn")
 
 ## Combine model summary and fitted models
-BestFitTargetedNonUKBorn <- c(BestFitTargetedNonUKBorn, FitTargetedNonUKBorn)
+BestFitTargetedNonUKBorn <- c(BestFitTargetedNonUKBorn, FitTargetedNonUKBorn) %T>%
+  save_formated("best-targeted-nonukborn")
 
-BestFitUniversalNonUKBorn <- c(BestFitUniversalNonUKBorn, FitUniversalNonUKBorn)
+BestFitUniversalNonUKBorn <- c(BestFitUniversalNonUKBorn, FitUniversalNonUKBorn) %T>%
+  save_formated("best-universal-nonukborn")
 }
 ```
 
@@ -556,6 +572,8 @@ During the study period there were `r TotalStudyCases  %>% format(big.mark =",")
 
 ```{r cohort-summary-plot, dpi = 320, messages = FALSE, warnings = FALSE, fig.cap = pretty_figref("CohortIncRates", paste0("Mean incidence rates per 100,000, with 95% confidence intervals for each retrospective cohort (see ", pretty_tabref("DefCohorts", inline = TRUE), " for cohort definitions), stratified by the vaccination policy and UK birth status. The top and bottom panels are on different scales in order to highlight trends in incidence rates over time."))}
 GraphSumPolicyChangeChange
+
+ggsave("formated-results/figure-1.png")
 ```
 
 **Adjusted estimates of the effects of the change in policy on school-age children**
@@ -620,7 +638,8 @@ UniversalTab <- UKBornUniTab %>%
   mutate_all(~replace_na(., "-")) %>% 
   rename(Variable = term)
 
-UniversalTab %>% 
+UniversalTab %T>%
+  save_formated("universal-main-results") %>% 
   pretty_table(label = "BestFitUni", 
                caption = paste0("Summary table of incidence rate ratios, in the UK born and non-UK born cohorts relevant to the universal school-age scheme, using the best fitting models as determined by comparison of the LOOIC (UK born: ", str_replace(BestFitUniversalUKBorn[[2]], "\\.", ""), " (" , BestFitUniversalUKBorn[[1]], "), ", "Non-UK born: ", str_replace(BestFitUniversalNonUKBorn[[2]], "\\.", ""), " (", BestFitUniversalNonUKBorn[[1]], ")). Model terms which were not included in a given cohort are indicated using a hyphen (-)."), 
                footer = paste0(
@@ -702,7 +721,8 @@ tmp <- TarTab
 TarTab[11, ] <- tmp[12, ]
 TarTab[12, ] <- tmp[11,]
 
-TarTab %>% 
+TarTab %T>%
+  save_formated("targeted-main-results") %>% 
   pretty_table(label = "BestFitTar", 
                caption = paste0("Summary table of incidence rate ratios, in the UK born and non-UK born cohorts relevant to the targeted neonatal scheme, using the best fitting models as determined by comparison of the LOOIC (UK born: ", str_replace(BestFitTargetedUKBorn[[2]], "\\.", ""), " (" , BestFitTargetedUKBorn[[1]], "), ", "Non-UK born: ", str_replace(BestFitTargetedNonUKBorn[[2]], "\\.", ""), " (", BestFitTargetedNonUKBorn[[1]], ")). Model terms which were not included in a given cohort are indicated using a hyphen (-)."), 
                footer = paste0(
@@ -717,8 +737,9 @@ TarTab %>%
 We estimate that the change in vaccination policy was associated with preventing `r pretty_inline_ci(EstMagImpactBestModel[[7, 3]], note = "95%CI ")` cases from 2005 until the end of the study period in the directly impacted populations after 5 years of follow up (`r pretty_tabref("MagPolicyChange")`). The majority of the cases prevented were in the non-UK born, with cases increasing slightly overall in the UK born. This was due to cases increasing in the UK born at school-age, and decreasing in UK born neonates, although both these estimates had large credible intervals.
 
 ```{r, results = "asis"}
-EstMagImpactBestModel %>% 
-    pretty_table(label = "MagPolicyChange", 
+EstMagImpactBestModel %T>%
+  save_formated("estimated-impact") %>% 
+  pretty_table(label = "MagPolicyChange", 
                caption = "Estimated number of cases prevented, from 2005 until 2015, for each vaccination programme in the study population relevant to that programme, using the best fitting model for each cohort.", 
                footer = "*95% CI: 95% Credible Interval, \n\u2020 Estimated total number of cases prevented due to the change in vaccination policy in 2005",
                justify = "llcc", 
@@ -781,7 +802,8 @@ Sam Abbott, Hannah Christensen, Nicky Welton, Ellen Brooks-Pollock
 ```{r model-def-tab, results = "asis"}
 ## Model description table
 ModelSpecCom %>% 
-  select(Model, Description) %>% 
+  select(Model, Description) %T>%
+  save_formated("model-spec") %>% 
   pretty_table(label = "ModelDefs",
                caption = "Full definition of each model, ordered by increasing complexity.",
                tab_fun = pander,
@@ -817,7 +839,8 @@ imputation_evaluation$dist_ukborn_cases %>%
          prop = pretty_round(100 * prop, 1)) %>% 
   mutate(ukborn = as.character(ukborn)) %>% 
   map_dfc(~replace_na(., "")) %>% 
-  select(Status, `Birth Status` = ukborn, `Proportion of Cases (%)` = prop,  Cases = n) %>% 
+  select(Status, `Birth Status` = ukborn, `Proportion of Cases (%)` = prop,  Cases = n) %T>%
+  save_formated("imputation-evaluation") %>% 
   pretty_table(
       label = "imp_com",
       caption = "Comparison of UK birth status in cases with complete or imputed records.",         
@@ -857,6 +880,8 @@ From 2000 until 2012 incidence rates in the UK born remained relatively stable b
 
 ```{r inc-rate-summary-plot, dpi = 330, messages = FALSE, warnings = FALSE, fig.cap = pretty_supfigref("IncRatesDirectPop", "Incidence rates per 100,000 for UK born population and non-UK born population, aged 0-5 and therefore directly affected by the targeted neonatal vaccination programme, and aged 14-19 and therefore directly affected by the universal school-age scheme.")}
 GraphStudySpecIncRates
+
+ggsave("formated-results/figure-2.png")
 ```
 
 ##### PAGEBREAK
@@ -864,31 +889,33 @@ GraphStudySpecIncRates
 **Incidence estimates for all cases, those aged 0-5 and those aged 14-19**
 
 ```{r UK born directly effected incidence rates, warnings = FALSE, results = "asis"}
-UKbornStudySpecIncRates %>%    
-    pretty_table(label = "UKbornDirectlyEffectedIncidence",
-                             col_names = c(names(.)[1], paste0(names(.)[-1], "*")),
-                             caption = "Incidence rates per 100,000 in the UK born for all cases, those aged 0-5, and those aged 14-19, who were directly affected by the change in vaccination policy in 2005",         
-                             footer = "* Incidence rate per 100,000, with 95% confidence intervals",
-                             split.cells = c(10, 25, 25, 25),
-                             split.table = 100,
-                             justify = justify_char_numeric(ncol(.), 1),
-                             tab_fun = pander,
-                             cap_fun = pretty_suptabref
+UKbornStudySpecIncRates %T>%
+  save_formated("ukborn-incidence-estimates") %>%   
+  pretty_table(label = "UKbornDirectlyEffectedIncidence",
+               col_names = c(names(.)[1], paste0(names(.)[-1], "*")),
+               caption = "Incidence rates per 100,000 in the UK born for all cases, those aged 0-5, and those aged 14-19, who were directly affected by the change in vaccination policy in 2005",         
+               footer = "* Incidence rate per 100,000, with 95% confidence intervals",
+               split.cells = c(10, 25, 25, 25),
+               split.table = 100,
+               justify = justify_char_numeric(ncol(.), 1),
+               tab_fun = pander,
+               cap_fun = pretty_suptabref
     )
 ```
 
 
 ```{r non-UK born directly effected incidence rates, warnings = FALSE, results = "asis"}
-NonUKbornStudySpecIncRates %>%    
-    pretty_table(label = "NonUKbornDirectlyEffectedIncidence",
-                col_names = c(names(.)[1], paste0(names(.)[-1], "*")),
-                caption = "Incidence rates per 100,000 in the non-UK born for all cases, those aged 0-5, and those aged 14-19, who would have been directly affected by the change in vaccination policy in 2005 had they been UK born",         
-                footer = "* Incidence rate per 100,000, with 95% confidence intervals",
-                split.cells = c(10, 25, 25, 25),
-                split.table = 100,
-                justify = justify_char_numeric(ncol(.), 1),
-                tab_fun = pander,
-                cap_fun = pretty_suptabref
+NonUKbornStudySpecIncRates %T>%
+  save_formated("nonukborn-incidence-estimates") %>%      
+  pretty_table(label = "NonUKbornDirectlyEffectedIncidence",
+              col_names = c(names(.)[1], paste0(names(.)[-1], "*")),
+              caption = "Incidence rates per 100,000 in the non-UK born for all cases, those aged 0-5, and those aged 14-19, who would have been directly affected by the change in vaccination policy in 2005 had they been UK born",         
+              footer = "* Incidence rate per 100,000, with 95% confidence intervals",
+              split.cells = c(10, 25, 25, 25),
+              split.table = 100,
+              justify = justify_char_numeric(ncol(.), 1),
+              tab_fun = pander,
+              cap_fun = pretty_suptabref
     )
 ```
 
@@ -907,25 +934,27 @@ AddDaggersToColNames <- function(data = NULL){
 ```
 
 ```{r summary table universal ukborn, results = "asis"}
-ModelComUniversalUKBorn %>%   
-    pretty_table(
-                 label = "ModelComUni",
-                 caption = paste0("Comparison of models fitted to incidence rates for the UK born population that were relevant to the universal vaccination programme of those at school-age (14). " , ModelOrderingString),
-                 footer = ModelsSummaryFooter,
-                 col_names = AddDaggersToColNames(.),
-                 split.table = 100,
-                 split.cells = c(10),
-                 justify = justify_char_numeric(ncol(.), Character = 1),
-                 tab_fun = pander,
-                 cap_fun = pretty_suptabref
+ModelComUniversalUKBorn %T>%
+  save_formated("universal-ukborn-results-summary") %>%    
+  pretty_table(
+                label = "ModelComUni",
+                caption = paste0("Comparison of models fitted to incidence rates for the UK born population that were relevant to the universal vaccination programme of those at school-age (14). " , ModelOrderingString),
+                footer = ModelsSummaryFooter,
+                col_names = AddDaggersToColNames(.),
+                split.table = 100,
+                split.cells = c(10),
+                justify = justify_char_numeric(ncol(.), Character = 1),
+                tab_fun = pander,
+                cap_fun = pretty_suptabref
     )
 ```
 
 
 ```{r summary table targeted ukborn, results = "asis"}
 ModelComTargetedUKBorn %>%    
-  unique() %>% 
-    pretty_table(label = "ModelComTar",
+  unique() %T>%
+  save_formated("targeted-ukborn-results-summary") %>%  
+  pretty_table(label = "ModelComTar",
                  caption = paste0("Comparison of models fitted to incidence rates for the UK born population that were elgible to the targeted vaccination programme of neonates. ", ModelOrderingString),
                  footer = ModelsSummaryFooter, 
                  col_names = AddDaggersToColNames(.),
@@ -942,30 +971,32 @@ ModelComTargetedUKBorn %>%
 **Direct effects of the change in policy on the non-UK born cohorts - results from all models**
 
 ```{r summary table universal nonukborn, results = "asis"}
-ModelComUniversalNonUKBorn %>%    
-    pretty_table(label = "ModelComUniNonUK",
-                 caption = paste0("Comparison of models fitted to incidence rates for the non-UK born population that were eligible to the universal vaccination programme of those at school-age (14). ", ModelOrderingString),
-                 footer = ModelsSummaryFooter,
-                 col_names = AddDaggersToColNames(.),
-                 split.table = 100,
-                 split.cells = c(10),
-                 justify = justify_char_numeric(ncol(.), Character = 1),
-                 tab_fun = pander,
-                 cap_fun = pretty_suptabref
+ModelComUniversalNonUKBorn %T>%
+  save_formated("universal-nonukborn-results-summary") %>%      
+  pretty_table(label = "ModelComUniNonUK",
+              caption = paste0("Comparison of models fitted to incidence rates for the non-UK born population that were eligible to the universal vaccination programme of those at school-age (14). ", ModelOrderingString),
+              footer = ModelsSummaryFooter,
+              col_names = AddDaggersToColNames(.),
+              split.table = 100,
+              split.cells = c(10),
+              justify = justify_char_numeric(ncol(.), Character = 1),
+              tab_fun = pander,
+              cap_fun = pretty_suptabref
     )
 ```
 
 ```{r summary table targeted nonukborn, results = "asis"}
-ModelComTargetedNonUKBorn %>%    
-    pretty_table(label = "ModelComTarNonUK",
-                 caption = paste0("Comparison of models fitted to incidence rates for the non-UK born population that were revelant to the targeted vaccination programme of neonates. ", ModelOrderingString),
-                 footer = ModelsSummaryFooter,
-                 col_names = AddDaggersToColNames(.),
-                 split.table = 100,
-                 split.cells = c(10),
-                 justify = justify_char_numeric(ncol(.), Character = 1),
-                 tab_fun = pander,
-                 cap_fun = pretty_suptabref
+ModelComTargetedNonUKBorn %T>%
+  save_formated("targeted-nonukborn-results-summary") %>%      
+  pretty_table(label = "ModelComTarNonUK",
+                caption = paste0("Comparison of models fitted to incidence rates for the non-UK born population that were revelant to the targeted vaccination programme of neonates. ", ModelOrderingString),
+                footer = ModelsSummaryFooter,
+                col_names = AddDaggersToColNames(.),
+                split.table = 100,
+                split.cells = c(10),
+                justify = justify_char_numeric(ncol(.), Character = 1),
+                tab_fun = pander,
+                cap_fun = pretty_suptabref
     )
 ```
 
