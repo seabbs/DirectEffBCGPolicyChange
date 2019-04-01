@@ -54,17 +54,17 @@ pretty_per_effect <- partial(prettypublisher::pretty_per_effect, sep = ", ", not
 
 **Authors:**
 
-Sam Abbott, Bristol Medical School: Population Health, University of Bristol, Bristol, UK
+Sam Abbott, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol, UK
 
-Hannah Christensen, Bristol Medical School: Population Health, University of Bristol, Bristol, UK
+Hannah Christensen, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol, UK
 
-Nicky Welton, Bristol Medical School: Population Health, University of Bristol, Bristol, UK
+Nicky Welton, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol, UK
 
-Ellen Brooks-Pollock, Bristol Medical School: Population Health, University of Bristol, Bristol, UK
+Ellen Brooks-Pollock, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol, UK
 
-**Correspondence to:** Sam Abbott, Bristol Medical School: Population Health, University of Bristol, Bristol BS8 2BN, UK; sam.abbott@bristol.ac.uk; 01173310185
+**Correspondence to:** Sam Abbott, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol BS8 2BN, UK; sam.abbott@bristol.ac.uk; 01173310185
 
-**WORD COUNT:** **Title** 16 (20), **Abstract** 250 (250), **Paper** 2990 (3000)  
+**WORD COUNT:** **Title** 16 (20), **Abstract** 250 (250), **Paper** 2990 (3500)  
 
 
 ##### PAGEBREAK
@@ -140,8 +140,8 @@ Each cohort was stratified by UK birth status, with both non-UK born and UK born
 
 
 ```{r Definition Cohorts, results = "asis"}
-data_frame(`Cohort` = c("Cohort 1", "Comparision cohort 1", "Cohort 1", "Comparision cohort 1", 
-                      "Comparision cohort 2", "Cohort 2", "Comparision cohort 2", "Cohort 2"),
+data_frame(`Cohort` = c("Cohort 1", "Comparison cohort 1", "Cohort 1", "Comparison cohort 1", 
+                      "Comparison cohort 2", "Cohort 2", "Comparison cohort 2", "Cohort 2"),
            `Vaccination programme` = c(rep("Universal", 4), rep("Targeted", 4)),
            `Eligible for the programme*` = c(rbind(rep("Yes", 2), rep("No", 2)),
                                       rbind(rep("No", 2), rep("Yes", 2))),
@@ -820,7 +820,7 @@ imputation_evaluation$dist_ukborn_cases %>%
   select(Status, `Birth Status` = ukborn, `Proportion of Cases (%)` = prop,  Cases = n) %>% 
   pretty_table(
       label = "imp_com",
-      caption = "Comparision of UK birth status in cases with complete or imputed records.",         
+      caption = "Comparison of UK birth status in cases with complete or imputed records.",         
                              justify = justify_char_numeric(ncol(.), 1:2),
                              tab_fun = pander,
                              cap_fun = pretty_suptabref

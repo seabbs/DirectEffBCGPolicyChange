@@ -1,5 +1,5 @@
 
-#' Make Model Comparision, Filters by Scheme, Country of Birth, and Convergance
+#' Make Model Comparison, Filters by Scheme, Country of Birth, and Convergance
 #'
 #' @param DF A dataframe of summarised model results.
 #' @param Scheme A character string specifying the scheme to select models for.

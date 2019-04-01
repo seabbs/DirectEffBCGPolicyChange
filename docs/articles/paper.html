@@ -81,12 +81,12 @@
     
     
 <p><strong>Authors:</strong></p>
-<p>Sam Abbott, Bristol Medical School: Population Health, University of Bristol, Bristol, UK</p>
-<p>Hannah Christensen, Bristol Medical School: Population Health, University of Bristol, Bristol, UK</p>
-<p>Nicky Welton, Bristol Medical School: Population Health, University of Bristol, Bristol, UK</p>
-<p>Ellen Brooks-Pollock, Bristol Medical School: Population Health, University of Bristol, Bristol, UK</p>
-<p><strong>Correspondence to:</strong> Sam Abbott, Bristol Medical School: Population Health, University of Bristol, Bristol BS8 2BN, UK; <a href="mailto:sam.abbott@bristol.ac.uk">sam.abbott@bristol.ac.uk</a>; 01173310185</p>
-<p><strong>WORD COUNT:</strong> <strong>Title</strong> 16 (20), <strong>Abstract</strong> 250 (250), <strong>Paper</strong> 2990 (3000)</p>
+<p>Sam Abbott, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol, UK</p>
+<p>Hannah Christensen, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol, UK</p>
+<p>Nicky Welton, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol, UK</p>
+<p>Ellen Brooks-Pollock, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol, UK</p>
+<p><strong>Correspondence to:</strong> Sam Abbott, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol BS8 2BN, UK; <a href="mailto:sam.abbott@bristol.ac.uk">sam.abbott@bristol.ac.uk</a>; 01173310185</p>
+<p><strong>WORD COUNT:</strong> <strong>Title</strong> 16 (20), <strong>Abstract</strong> 250 (250), <strong>Paper</strong> 2990 (3500)</p>
 <div id="pagebreak" class="section level5">
 <h5 class="hasAnchor">
 <a href="#pagebreak" class="anchor"></a>PAGEBREAK</h5>
@@ -159,7 +159,7 @@
 <td align="right">2000-2004</td>
 </tr>
 <tr class="even">
-<td align="left">Comparision cohort 1</td>
+<td align="left">Comparison cohort 1</td>
 <td align="left">Universal</td>
 <td align="left">No</td>
 <td align="left">UK born</td>
@@ -175,7 +175,7 @@
 <td align="right">2000-2004</td>
 </tr>
 <tr class="even">
-<td align="left">Comparision cohort 1</td>
+<td align="left">Comparison cohort 1</td>
 <td align="left">Universal</td>
 <td align="left">No</td>
 <td align="left">Non-UK born</td>
@@ -183,7 +183,7 @@
 <td align="right">2005-2010</td>
 </tr>
 <tr class="odd">
-<td align="left">Comparision cohort 2</td>
+<td align="left">Comparison cohort 2</td>
 <td align="left">Targeted</td>
 <td align="left">No</td>
 <td align="left">UK born</td>
@@ -199,7 +199,7 @@
 <td align="right">2005-2010</td>
 </tr>
 <tr class="odd">
-<td align="left">Comparision cohort 2</td>
+<td align="left">Comparison cohort 2</td>
 <td align="left">Targeted</td>
 <td align="left">No</td>
 <td align="left">Non-UK born</td>
@@ -859,7 +859,7 @@ Figure 1: Mean incidence rates per 100,000, with 95% confidence intervals for ea
 <p>As we were imputing a single variable we reformulated the imputation as a categorical prediction problem. This allowed us to use techniques from machine learning to improve the quality of our imputation, whilst also validating it using metrics supported by theory. We included year of notification, sex, age, Public Health England Centre (PHEC), occupation, ethnic group, Index of Multiple Deprivation (2010) categorised into five groups for England (IMD rank), and risk factor count (risk factors considered; drug use, homelessness, alcohol misuse/abuse and prison). However, we could not account for a possible missing not at random mechanism not captured by these covariates. To train the model we first split the data with complete UK birth status into a training set (80%), a calibration set (5%) and a test set (15%). We then fit a gradient boosted machine with the 10000 trees, early stopping (at a precision of <span class="math inline">\(1e-5\)</span>, with 10 stopping rounds), a learning rate of 0.1, and a learn rate annealing of 0.99. Gradient boosted machines are a tree based method that can incorporate complex non-linear relationships and interactions. Much like a random forest model they work by ensembling a group of trees, but unlike a random forest model each tree is additive aiming to reduce the residual loss from previous trees. Once the model had been fit to the training set we performed platt scaling using the calibration data set. Our fitted imputation model had a Logloss of 0.28 on the test set, with an AUC of 0.93, both of which indicate a robust out of bag performance. We found that ethnic group was the most important variable for predicting UK birth status, followed by age and PHEC.</p>
 <p>Using the fitted model we predicted the birth status for notifications where this was missing, using the F1 optimal threshold as our probability cut-off. It is common to impute missing values multiple times, to account for within- and between imputation variability. However, we considered this unnecessary for our analysis as the amount of missing data was small, our analysis considered only aggregate counts, our model metrics indicated a robust level of performance out of bag and any unaccounted for uncertainty would be outweighed by the uncertainty in our population denominator.<span class="citation">(11)</span> We found that cases with imputed birth status had a similar proportion of UK born to non-UK born cases as in the complete data (Supplementary Table S6).</p>
 <table style="width:83%;" class="table">
-<caption>Supplementary Table S6: Comparision of UK birth status in cases with complete or imputed records.</caption>
+<caption>Supplementary Table S6: Comparison of UK birth status in cases with complete or imputed records.</caption>
 <colgroup>
 <col width="15%">
 <col width="20%">
