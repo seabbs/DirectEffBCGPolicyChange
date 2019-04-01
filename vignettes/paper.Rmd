@@ -432,19 +432,19 @@ Models %>% rowwise %>%
 ```{r model tables, message = FALSE, warning = FALSE}
 ModelComTargetedUKBorn <- model_comparison(Models, Scheme = "Targeted high-risk neonates (0)",
                                            Pop = "UK born") %T>%
-  save_formated("summmary-targeted-ukborn")
+  save_formated("summary-targeted-ukborn")
 
 ModelComUniversalUKBorn <- model_comparison(Models, Scheme = "Universal school-age (14)",
                                             Pop = "UK born") %T>%
-  save_formated("summmary-universal-ukborn")
+  save_formated("summary-universal-ukborn")
 
 ModelComTargetedNonUKBorn <- model_comparison(Models, Scheme = "Targeted high-risk neonates (0)", 
                                               Pop = "Non-UK born") %T>%
-  save_formated("summmary-targeted-nonukborn")
+  save_formated("summary-targeted-nonukborn")
 
 ModelComUniversalNonUKBorn <- model_comparison(Models, Scheme = "Universal school-age (14)", 
                                                Pop = "Non-UK born") %T>%
-  save_formated("summmary-universal-nonukborn")
+  save_formated("summary-universal-nonukborn")
 ```
 
 
