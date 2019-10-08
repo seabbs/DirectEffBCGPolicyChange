@@ -133,7 +133,7 @@ Although the long term effects of BCG vaccination such as reducing the reactivat
 
 Data on all notifications from the Enhanced Tuberculosis Surveillance (ETS) system from Jan 1, 2000 to Dec 31, 2015 were obtained from Public Health England (PHE). The ETS is maintained by PHE, and contains demographic, clinical, and microbiological data on all notified cases in England. A descriptive analysis of TB epidemiology in England is published each year, which fully details data collection and cleaning[@PHE2016a].
 
-We obtained yearly population estimates from the April to June Labour Force Survey (LFS) for 2000-2015. The LFS is a study of the employment circumstances of the UK population, and provides the official measures of employment and unemployment in the UK. Reporting practices have changed with time so the appropriate variables for age, country of origin, country of birth, and survey weight were extracted from each yearly extract, standardised, and combined into a single data-set.
+We obtained yearly population estimates from the April to June Labour Force Survey (LFS) for 2000-2015. The LFS is a household study of the employment circumstances of the UK population, and provides the official measures of employment and unemployment in the UK. It is also used to look at population demographics such as: ethnicity, country of birth, and age. Reporting practices have changed with time so the appropriate variables for age, country of origin, country of birth, and survey weight were extracted from each yearly extract, standardised, and combined into a single data-set.
 
 **Constructing Retrospective cohorts**
 
@@ -566,6 +566,11 @@ EstMagImpactBestModel <- AllAnalysisDf %>%
          CoB = as.character(CoB)) %>% 
   select(`Vaccination Programme` = VacScheme, `Birth Status` = CoB, `Cases Prevented (95% CrI*)` = prev_cases, `Notified Cases` = cases)
 ```
+
+
+**Ethical statement**
+
+Ethical approval was not needed for this survey.
 
 #####PAGEBREAK
 

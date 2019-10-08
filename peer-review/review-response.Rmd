@@ -52,18 +52,19 @@ METHODS
 Data sources 
 - Does the Labour Force Survey record only the number of adults of working age (employed or unemployed) in the country, or does it record more people than these (e.g. their family members such as children)? Please describe the population and demographics recorded in the Labour Force Survey in more detail. 
 
-*- [ ] Add detail on LFS*
+*The LFS is the largest household study in the UK. Whilst it is used primarily to estimate unemployment rates it is also designed to be used by local governments etc. to understand the structure of their population. It therefore provides some of the best available yearly population estimates that are stratified by ethnicity, UK birth status, and age. A caveat to this is that it may not capture the older adult poplulation well. However, this was not relevant to this study. We have addded these additional detials to the manuscript.*
 
 Statistical methods
 
 - While it is mentioned in the methods that 95% confidence intervals were calculated around the IR values, it is not described what the intervals are around the IRRs. Please check the earlier editorial comment about the intervals that are presented in text and tables around the IRRs. 
 
 *We have added this and checked all tables and figures to make sure we are consistent.*
+
 Ethical statement 
 
 - An ethical statement should be included (https://www.eurosurveillance.org/for-authors#ethical%20statement); if ethical approval was not needed, this should be stated in the manuscript. In this case, if possible, it should be please explained why. 
 
-*- [ ] Add ethical statement*
+*We have attended an ethical statement*
 
 RESULTS 
 
