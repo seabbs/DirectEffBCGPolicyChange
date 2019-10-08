@@ -23,32 +23,29 @@ GENERAL
 
 - In both the abstract and the main text please define all abbreviations at first use (e.g. UK; gradient boosting method – is this GBM?; 95%CI – is CI confidence interval? Credible interval?; MNAR in the discussion – is this missing not at random mechanism?). For Tables and Figures, please define all abbreviations used in a footnote below the Figure or Table. 
 
-*- [ ] Reviewed and corrected.*
+*We have reviewed all abbreviations and added definitions where missing. Tables and footers have been checked for abbreviations without explanations and these have been added when missing. The abstract has had explanations for the abbreviations added where missing.*
 
 - If possible, please use square brackets for the references with the punctuation following the reference. 
 
-*- [ ] Done.*
+*We have moved to using square brackets and moved references from following punctuation to punctuation following the reference.*
 
 - Tables should not have any empty cells as design element or because information is not available ('NA' (subsequently defined as not available or not applicable) can be used for example). 
 
-*- [ ] Required*
-*- [ ] Provide link to output in form that can be coded*
+*We feel that the table design we have used clearly imparts the information that it contains - part of this design is empty cells to space information. NA has not been used as information is not missing in the conventional sense - the results tables combine two different models with different confounders (hence not all fields contain data). Having this information in a single table allows for easier between model comparisons which we feel is essential to the presentation of our results. We have also included all results in csv form for readers who wish to use our results programmatically. We have clarified this in the data availability section. However, we are happy to alter the table design if we can preserve the clarity of the results presentation and welcome your suggestions.*
   
 - For all Figure and Table titles, when possible, please indicate at the end of the title, the geographical area, period and total number of items covered by the illustration. E.g. Table 1: Summary of relevance and eligibility criteria for each cohort, United Kingdom, 2000-2010 (n = xxx individuals) 
 
-*- [ ] Add*
+*We have added location and temporal information to all studies. As this was a retrospective whole population based study we are not clear that sample sizes are useful in this instance (as they are the whole population meeting the cohort critiera which is age based). We are happy to add this if your feel this is meaningful*
 
 - Please check the overall text versus the tables for the name of the intervals (e.g. 95% confidence intervals vs 95% credible intervals). To give an example: In the abstract and in the main text subsection called ‘Adjusted estimates of the effects of the change in policy on school-age children’ there is ‘IRR: 0.74 (95%CI 0.61, 0.88)’ but in the table 2 there is ‘0.74 (0.61, 0.88)’ defined as IRR (95% CrI) CrI: Credible interval. 
 
-*- [ ] Check CI usage*
+*We have standardised all usage across the text. *
 
 ABSTRACT 
 
 - While keeping the word count below 250 words, please add an ‘aim’ subsection, describing briefly the aim of the paper, and please specify the study type (e.g. observational study?) also in the abstract (either in the aim or the methods). 
 
-*- [ ] Add aim*
-*- [ ] Add study type*
-*- [ ] Cut to length*
+*We have added an aim section that includes the aim of the paper and the study type. We have also made the required cuts to the abstract in order to keep within the word limit.*
 
 METHODS 
 
@@ -61,7 +58,7 @@ Statistical methods
 
 - While it is mentioned in the methods that 95% confidence intervals were calculated around the IR values, it is not described what the intervals are around the IRRs. Please check the earlier editorial comment about the intervals that are presented in text and tables around the IRRs. 
 
-*- [ ] Add comment on CIs in methods.*
+*We have added this and checked all tables and figures to make sure we are consistent.*
 Ethical statement 
 
 - An ethical statement should be included (https://www.eurosurveillance.org/for-authors#ethical%20statement); if ethical approval was not needed, this should be stated in the manuscript. In this case, if possible, it should be please explained why. 
@@ -72,7 +69,7 @@ RESULTS
 
 = ‘Of notifications with a known birth status 27% (29096/106765) were UK born, in comparison to 33% (2634/8055) in cases with an imputed birth status.’ Just for editor’s understanding: does this mean that ‘Among notifications with a known birth status, 27% had the status ‘born in the UK’, while among notifications with an imputed birth status, 33% had the status ‘born in the UK’? 
 
-*- [ ] Exlain this*
+*Yes that is correct - we are open to rephrasing this if additional clarity is required.*
 
 ## Authors' response to Reviewer #1:
 
