@@ -76,32 +76,28 @@ RESULTS
 
 This is an interesting paper in which the authors address a key TB control issue which is measuring the impact of BCG policy change in the incidence of tuberculosis in children. Whether and when targeted BCG vaccination should replace universal vaccination depends on several factors and may be a matter of discussion within national TB control programs, although in Europe most countries have a targeted BCG policy. The question is worthwhile investigating and discussing. I suggest publication in Eurosurveillance provided that the minor changes suggested are taken into account. HOWEVER, given the importance of the statistical methods in this analysis, which I do not feel confident to analyse, I recommend that a tough review of this part, and the results, be made by a statistician, which opinion is crucial to decide whether the paper is able to be published or not. 
 
-*- [ ] Say thank you*
-*- [ ] Agree with them*
+*Thank you for your helpful review comments. We agree that understanding when/if targeted vaccination should be used rather than universal vaccination is a key TB control issue. *
 
 Introduction 
 
 1.	Paragraph 2. In France, universal vaccination was implemented in all children before entering "community care" and primary school at the latest, and not in neonates. 
 
-*- [ ] Update paper with this information*
+*We have corrected this.*
 
 Methods 
 
 
 1.	Paragraph 1. The geographical scale of TB local incidence is not specified and is an important piece of information that would be worth mentioning at this stage. 
 
-*- [ ] Clarify what this means*
-*- [ ] Add if possible*
+*We have added that TB incidence is highly heterogeneous in England with the majority of cases occurring in urban, non-UK born, populations.*
 
 2.	Paragraph 2. Not clear whether the LFS which reports "employment circumstances" of the UK population reports also data in children, who are not employed. We assume the answer is yes which should be probably clarified. 
 
-*- [ ] As for editor comment clarify inclusion*
+*We have added additional details to this section. Please see the responses to the editors comments for an expanded discussion of the LFS.*
 
 3.	Definition of cohorts. Not totally clear to me. Example for comparison cohort 2: a child born in 2000 and who is diagnosed with TB at 2 years old (2002): the vaccination programme in 2002 is universal not targeted, as seen in Table 1. Maybe further clarify this crucial point. 
 
-*- [ ] Explain this example*
-*- [ ] Explain the general approach*
-*- [ ] Anything to add to the paper*
+*We agree that this is somewhat difficult to interpret as the underlying cohort structure is complex. The cohorts are first split into targeted and universal vaccination based on age. Eligibility is then used to indicate if a given cohort was actually enrolled on a given programme. This gives a cohort who were enrolled and a comparison cohort who were not (resulting in a binary outcome). We have added additional detail outlining this to the paper.* 
 
 Statistical Methods
 
@@ -111,29 +107,27 @@ Results
 
 1.	No comments, except that I find some parts of the results difficult to understand for a "common" public health professional" with no deep knowledge on statistics and modelling methods. 
 
-
 Discussion 
 
 1.	BCG protects mainly against severe disease (meningitis). This point is not discussed at all. An additional analysis could have investigated the impact of policy change on the incidence of meningeal TB in children, which could have broaden the consequences of policy change in the epidemiology of TB in children. Maybe a word on this should be said in Introduction or Discussion. 
 
-*- [ ] Thank for this and mention that it is a good point*
-*- [ ] Mention in discussion after some thought*
+*We agree that considering disease severity stratified by age is an important issue and could be addressed in a follow up study. We have added a comments detailing this to the discussion. We disagree on the evidence that the BCG protects mainly against severe disease in the UK where there is good evidence of strong protection against all disease with no evidence of protection weakening with increased age at vaccination. However, we do agree that this is relevant in other contexts.*
 
 2.	Other interventions may decrease TB incidence, such as a better screening, a change in screening policy in migrants, a better case management…This is not discussed. Could these potential interventions have also played a role in the results presented here? 
 
-*- [ ] Agree - flag where currently mentioned*
-*- [ ] Rephrase to make clearer?*
+*We agree that this is a potential issue and one that we could not fully account for. We have partially accounted for it by adjusting for between year cohort differences but this does not account for interventions that changed at the same time as vaccination policy. We mentioned this limitation in the discussion,*
+
+*"Finally, we have assumed that the effect we have estimated for the change in BCG policy is due to the changes in BCG vaccination policy as well as other associated changes in TB control policy, after adjusting for hypothesised confounders. However, there may have been additional policy changes which we have not accounted for."*
+
+*We have now added additional details to the conclusions stressing this point further.*
 
 3.	No figures of BCG vaccination coverage trends in targeted groups are given (except the 68% mentioned in the Discussion). This determines to a large extent the impact of vaccination. A brief description of this could be given here, or in Introduction. 
 
-*- [ ] Agree and discuss the low quality of the data*
-*- [ ] Explain that this motivated the form of the analysis*
+*We agree that vaccination coverage impacts the success/failure of vaccination programmes. Unfortunately, coverage estimates for the targeted vaccination programme are of very poor quality. This was part of the motivation for using a population based approach that looked at overall incidence rates and hence did not need to account for vaccination coverage. We agree that understanding coverage in targeted populations should be a focus for further work in this area.*
 
 4.	BCG has an impact mainly in severe forms of TB, and prevents about 50% of pulmonary TB in children. But children, to my knowledge, do not frequently transmit TB. So BCG has rather poor effect on TB transmission. The authors speak in their discussion on indirect effects and ongoing transmission. Is this really the case with BCG and TB? 
 
-*- [ ] Explain that it is the case when adults are vaccinated. If there is sufficent transmission then vaccinating adults may be more protective than vaccinating children*
-*- [ ] Rephrase to higlight this point*
-
+*This is an interesting point and the motivator for some of our current research. Whilst the reviewer is correct that children rarely transmit TB this is not the case for adults. This means that school-age vaccination may lead to fewer overall cases in children than direct vaccination of children once onwards transmission has been accounted for due to increased protection from TB as young adults. This depends on the level of TB transmission in the population and therefore may not be relevant in the UK where transmission is generally thought to be low. As per our previous comment we disagree with the reviewer that BCG mainly impacts severe forms of TB in the UK. For areas where this is the case we agree that direct vaccination of children is more clearly beneficical. However, as effectiveness when given later in life varies so too will the thresold that school-age vaccination becomes more effective.*
 
 ## Authors' response to Reviewer #2:
 
