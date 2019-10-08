@@ -132,62 +132,52 @@ Discussion
 ## Authors' response to Reviewer #2:
 
 
-
 Thank you for providing an excellent overview on the effects of the policy changes in BCG vaccination in England. 
 
-*- [ ] Say thanks*
+*Thank you this review.*
 
 
 ## Authors' response to Reviewer #3:
 
 This study is of high relevance, not just for the England, but for the global tuberculosis community: The UK (England and Wales notably) had been one of the few countries with a universal vaccination of adolescents and a clinical trial demonstrating high efficacy for at least 20 years in the age vaccinated groups and beyond to include young adults during follow-up. 
 
-*- [ ] Agree and say thank you for helpful comments*
 
 From the switch from universal adolescent vaccination to selective (largely the descendant newborn of foreign-born ancestors) one would thus hypothetically expect an increase in the incidence rate among the former and a decrease in the incidence rate among the latter (among the respective cohorts in both groups), if confounding resulting from secular trends could be properly controlled for. This study aimed to do precisely that. 
 
+*Thank you for this detailed and helpful review. We agree that the findings from this study should be relevant to the global TB community. We particularly appreciate your suggestions for improving the discussion of the approach used.*
+
 The authors created 8 cohorts, each for a 5-year follow-up, using tuberculosis surveillance data for the numerator and Labor Force Survey data for the population denominator. These procedures are all clearly explained. As it gets substantially steeper and difficult to follow for the more general user's consumption is when the models are elaborated in the same paragraph. Perhaps it would help to split the elements of describing the basic epidemiology of incidence rates and ratios from the latter into two separate paragraphs, so that those unfamiliar with "negative binomial models", "penalised by model complexity", and the intricacies of Bayesian estimation with Markov Chain Monte Carlo, etc. This would clarify that here is a basic methodology, and here is a complex modeling description, the former for every epidemiologist, the latter only for the seasoned expert in statistical modeling using special techniques. I concur that it should and has to be there, but the more basic working techniques of calculation might be preferably "visually" separated from complex modeling techniques, notably when unexplained acronyms such as "GBM" are interspersed that do not help in easily following what the modeler actually did. Nor does it become that clear why exactly these models were chosen and not something else. The reader should probably have some inkling what the motivation for model selection is. 
 
-*- [ ] Comment agreeing*
-*- [ ] Split approach into two paragraphs*
-*- [ ] As per editor correct acronyms usage and saythank you*
-*- [ ] Review explanation for model usage and update if not sufficient*
+
+*We agree that it is important that all readers can easily follow the analysis. We have split the modelling section as you suggested into a non-technical overview and a more technical discussion of the approach. As per the editor comment we have carefully reviewed the use of abbreviations and added definitions where missing.*spel 
  
-In any case, it becomes again clear that the procedures resulted in obtaining adjusted estimates of the effects of the policy change from universal adolescent to selective neonatal vaccination. The effect was measurable but seemingly modest. Apparently, the model required adjustments by including the change in policy, age, incidence rates in the non-UK born, and year of eligibility as a random effect. To the non-initiated, all these elements make intuitively sense and reflect the complexity of interplaying variables that all played a substantial role in what was finally observable. Such complexity may also contribute to variability and thus uncertainty about the unbiased estimation of the magnitude of the observable effect. However, the authors later also state that all models (does this refer only to the non-UK born?) that included at least age in the adjustment resulted in comparable effects. As parsimony is king in all modeling, perhaps it could be stated more 
-explicitly that always the model with the minimum required variables was used and perhaps why recourse was taken to retaining more complex models if a more simple one gave actually comparable results. Perhaps I am missing here something, but then it would indeed be useful to review the sum of the modeling exercises to the point. 
+In any case, it becomes again clear that the procedures resulted in obtaining adjusted estimates of the effects of the policy change from universal adolescent to selective neonatal vaccination. The effect was measurable but seemingly modest. Apparently, the model required adjustments by including the change in policy, age, incidence rates in the non-UK born, and year of eligibility as a random effect. To the non-initiated, all these elements make intuitively sense and reflect the complexity of interplaying variables that all played a substantial role in what was finally observable. Such complexity may also contribute to variability and thus uncertainty about the unbiased estimation of the magnitude of the observable effect. However, the authors later also state that all models (does this refer only to the non-UK born?) that included at least age in the adjustment resulted in comparable effects. As parsimony is king in all modeling, perhaps it could be stated more explicitly that always the model with the minimum required variables was used and perhaps why recourse was taken to retaining more complex models if a more simple one gave actually comparable results. Perhaps I am missing here something, but then it would indeed be useful to review the sum of the modeling exercises to the point. 
 
-*- [ ] Agree with comment and explain approach*
-*- [ ] Review method explanation to see if can be tweaked for clarity* 
-
+*We agree that parsimony is an important goal of modelling. However, it is also important to adjust for confounding in the data. Our approach used a hypothesis free (excepting our initial use of domain knowledge in selecting an overall pool of confounders), statistically rigorous metric (the leave one out information criterion) to select the model that best fit the data after being penalised for model complexity (to avoid overfitting). We hope that our discussion of this approach is clearer now that we have adopted your suggestion above of splitting the statistical methods. We included a discussion of other models as it is gives an indication of which variables greatly altered the results and may be used when interpreting the findings. It is also important to include to make it clear that we explored multiple models (doing otherwise might be considered p hacking).*
 
 In table 3, among the other variables, is also the year of study eligibility (please correct spelling). The point estimate incidence rate ratio varies from 0.83 to 1.12 (UK born) with no discernible trend. Is this therefore an expression of the intrinsic uncertainty of the effect of the model? If so, then perhaps the authors would have to be more explicit that there remains substantial uncertainty in the modeled effect as small as it may be. Thus perhaps the variability in the estimated magnitude of effect for cases prevented in the following paragraph which is substantial is therefore not all that meaningful after all (CrIs not uncommonly overlapping zero). 
 
-*-[ ] Correct spellign of year of study eligibility - say thank you*
-*- [ ] Disagree - after adjusting for incidence rates trends would not expect a trend across years nessarily. Adjusting for this may account for other remaining differences between cohorts. Does not mean that the results are more uncertain than represented by the current CIs.* 
+*We feel that adjusting for year of study eligibility helps to account for potential differences between cohorts. We would not expect to see a trend and if we did this might indicate that we had missed adjusting for a variable that may be introducing systematic bias. We feel that we have satisfactorily captured uncertainty using our modelling approach and that therefore the CrIs are representive of the underlying uncertainty. We have corrected the spelling of eligibility.*
 
 Thus, in the end in the discussion, the authors speak - statistically probably correctly - of "evidence of an association", but perhaps disappointingly it is not as clear-cut as one may have hypothesized (including this reviewer's pre-reading subjective gut feeling). Perhaps there is more not easily definable confounding that couldn't be addressed in the model. Because it seems indisputable that at least the BCG / Vole bacillus UK trial had given unusually solid long-term protection against pulmonary tuberculosis among young adults and it remains baffling that stopping this scheme of adolescent vaccination should have left such little effect. Would the reasons for this phenomenon deserve a bit more extensive addressing in the discussion? That BCG vaccination has given various levels of protection (say, nothing in Chingleput) seems entirely irrelevant for the UK, here it gave a non-varying high-level of protection for about ten to 12 years before it precipitously dropped 
 towards zero. This fits with what we know from effector cell immunity and it is not clear why this should not also be reflected more substantially in the period following policy change unless the models couldn't really account for all factors that matter, but it is surely not variability in vaccine protection elsewhere that is an issue here, this is only about the UK after all. 
 
-*- [ ] Agree went against expectation of the authors*
-*- [ ] Reminder that looking at comparing two potentially effective vaccination programmes. Baseline is not no vacination*
-*- [ ] Explanation is probably low incidence rates*
-*- [ ] Also looking at a relatively small period of follow up*
-*- [ ] Major benefit is from the non-UK born whos interactons with UK vaccination is likely different*
-*- [ ] Check all points are clear in the paper*
+*We agree that our conclusions were not as clear-cut as might be expected. However, part of this is due to comparing two vaccination programmes rather than using a baseline of no vaccination. We were in effect estimating the incremental difference between the two programmes and it is perhaps to be expected that this difference was small. In addition much of the uncertainty is due to incidence in neonates being very low in England throughout the study. It should also be noted that stopping universal school-age vaccination did result in increased incidence rates overall when only the UK born were considered (as expected). It required the inclusion of the non-UK born in order to alter these findings. The non-UK born were less clearly exposed to UK vaccination policy and as the reviewer has noted this impact may be due to other policy changes. We feel that the reviewer suggested changes to the discussion has helped highlight this. A final point is that we were only able to use 5 years of follow up. It may be the case that extending follow up alters these findings. We have included this point in the discussion.*
 
 I appreciate the work of the authors with these thought-provoking study results! 
 
+*Thank you again for your useful comments.*
 
 Minor comments: 
 
 Several references have capitalization vs lower case issue be in names or e.g. "bcg", and also whether words in the title should be capitalized or not, etc. 
 
-*- [ ] Resolve*
+*Resolved issue with BCG. Use of title case is a journal dependant decision and therefore we have not standardised.*
 
 References 7 and 8 are duplicates 
 
-*- [ ] Resolve*
+*Resolved.*
 
 Reference 11 is a bit of a screw-up (2018 and January-2011) 
 
-*- [ ] Resolve*
+*Resolved*

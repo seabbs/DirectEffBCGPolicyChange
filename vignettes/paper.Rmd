@@ -118,7 +118,7 @@ BCG, surveillance, vaccination policy, neonatal, school-age
 
 In 2005 England changed its Bacillus Calmette–Guérin (BCG) vaccination policy against tuberculosis (TB) from a universal programme aimed at 13 and 14 year olds to a targeted programme aimed at high-risk neonates. High risk babies are identified by local TB incidence and by the parents’ and grandparents’ country of origin. The change in policy was motivated by evidence of reduced TB transmission[@PHE2016a; @Fine2005a; @Teo2006], and high effectiveness of the BCG vaccine in children[@Rodrigues1993; @Colditz1994; @Roy2014], and variable effectiveness in adults[Mangtani2014; @Zwerling2011]. Little work has been done to evaluate the impact of this change in vaccination policy.
 
-Globally, several countries with low TB incidence have moved from universal vaccination, either of those at school-age or neonates, to targeted vaccination of neonates considered at high-risk of TB[@Zwerling2011a].In Sweden, which discontinued universal vaccination of neonates in favour of targeted vaccination of those at high risk, incidence rates in Swedish-born children increased slightly after the change in policy[@Romanus1992]. In France, which also switched from universal vaccination of children to targeted vaccination of those at high-risk, a study found that targeted vaccination may have reduced coverage in those most at risk[@Guthmann2011]. 
+Globally, several countries with low TB incidence have moved from universal vaccination, either of those at school-age or neonates, to targeted vaccination of neonates considered at high-risk of TB[@Zwerling2011].In Sweden, which discontinued universal vaccination of neonates in favour of targeted vaccination of those at high risk, incidence rates in Swedish-born children increased slightly after the change in policy[@Romanus1992]. In France, which also switched from universal vaccination of children to targeted vaccination of those at high-risk, a study found that targeted vaccination may have reduced coverage in those most at risk[@Guthmann2011]. 
 
 
 The number of TB notifications in England increased from 6929 in 2004 to 8280 in 2011 but has since declined to 5137 in 2017[@PHE2016a]. A recent study found that this reduction may be linked to improved TB interventions[@Thomas2018]. Directly linking trends in TB incidence to transmission is complex because after an initial infection an individual may either develop active disease, or enter a latent stage which then may later develop into active disease. Incidence in children is a proxy of TB transmission, because any active TB disease in this population is attributable to recent transmission. Using this approach it is thought that TB transmission has been falling in England for the last 5 years, a notion supported by strain typing[@PHE2016a]. However, this does not take into account the change in BCG policy, which is likely to have reduced incidence rates in children.
@@ -212,11 +212,15 @@ source(file.path("scripts", "descriptive_data_sum.R"))
 source(file.path("scripts", "exploratory_plots.R"))
 ```
 
-**Statistical methods**
+**Statistical methods overview**
 
 We estimated incidence rates (with 95% confidence intervals) by year, age and place of birth as (number of cases) divided by (number of individuals of corresponding age). UK birth status was incomplete, with some evidence of a missing not at random mechanism. We imputed the missing data using a gradient boosting method (GBM; see supplementary information). We then used descriptive analysis to describe the observed trends in age-specific incidence rates over the study period, comparing incidence rates in the study populations relevant to both vaccination programmes before and after the change in BCG policy.
 
-We calculated Incidence Rate Ratios (IRRs) with 95% credible intervals (95% CrIs) for the change in incidence rates associated with the change in BCG vaccination policy (modelled as a binary breakpoint at the start of 2005) for both the UK born and non-UK born populations that were relevant to the universal programme, and for the targeted programme using a range of models. We considered the following covariates: age[@PHE2016a; @Zwerling2011], incidence rates in both the UK born and non-UK born who were not in the age group of interest[@PHE2016a], and year of study entry (as a random intercept). We first investigated a univariable Poisson model, followed by combinations of covariates (`r pretty_suptabref("ModelDefs", inline = TRUE)`). We also investigated a Negative Binomial model adjusting for the same covariates as in the best fitting Poisson model. The models were estimated with a Bayesian approach using Markov Chain Monte Carlo (MCMC), with default weakly informative priors (see supplementary information). Model fit, penalised by model complexity, was assessed using the leave one out cross validation information criterion (LOOIC) and its standard error[@Vehtari2016]. Models were ranked by goodness of fit, using their LOOIC, with a smaller LOOIC indicating a better fit to the data after adjusting for the complexity of the model. No formal threshold for a change in the LOOIC was used, with changes in the LOOIC being evaluated in the context of their standard error. The inclusion of the change in policy in the best fitting model was tested by refitting the model excluding the change in policy and estimating the improvment in the LOOIC. Once the best fitting model had been identified we estimated the number of cases prevented, from 2005 until 2015, for each vaccination programme in the study population relevant to that programme (see supplementary information). 
+We calculated Incidence Rate Ratios (IRRs) with 95% credible intervals (95% CrIs) for the change in incidence rates associated with the change in BCG vaccination policy (modelled as a binary breakpoint at the start of 2005) for both the UK born and non-UK born populations that were relevant to the universal programme, and for the targeted programme using a range of models. We considered the following covariates: age[@PHE2016a; @Zwerling2011], incidence rates in both the UK born and non-UK born who were not in the age group of interest[@PHE2016a], and year of study entry (as a random intercept). We evaluated a range of models using a statistically rigorous criterion, that accounted for model fit and complexity, for model selection.
+
+**Statistical modelling details**
+
+We first investigated a univariable Poisson model, followed by combinations of covariates (`r pretty_suptabref("ModelDefs", inline = TRUE)`). We also investigated a Negative Binomial model adjusting for the same covariates as in the best fitting Poisson model. The models were estimated with a Bayesian approach using Markov Chain Monte Carlo (MCMC), with default weakly informative priors (see supplementary information). Model fit, penalised by model complexity, was assessed using the leave one out cross validation information criterion (LOOIC) and its standard error[@Vehtari2016]. Models were ranked by goodness of fit, using their LOOIC, with a smaller LOOIC indicating a better fit to the data after adjusting for the complexity of the model. No formal threshold for a change in the LOOIC was used, with changes in the LOOIC being evaluated in the context of their standard error. The inclusion of the change in policy in the best fitting model was tested by refitting the model excluding the change in policy and estimating the improvment in the LOOIC. Once the best fitting model had been identified we estimated the number of cases prevented, from 2005 until 2015, for each vaccination programme in the study population relevant to that programme (see supplementary information). 
 
 **Implementation**
 
@@ -607,7 +611,7 @@ UKBornUniTab <- BestFitUniversalUKBorn[[3]] %>%
     add_row(term = c("Policy change\u2020", add_indent("Pre-change")), 
             estimate = c("", "*Reference*")) %>% 
   add_row(term = c("Age", add_indent(14)), 
-          estimate = c("", "*Reference*")) %>% 
+          estimate = c("", "*Reference*")) %>%
   mutate(term = term %>% 
            factor(levels = c("Policy change\u2020", add_indent(c("Pre-change", "Post-change")),
                              "Age", add_indent(14:19),
@@ -628,14 +632,14 @@ NonUKBornUniTab <- BestFitUniversalNonUKBorn[[3]] %>%
           estimate = c("", "*Reference*")) %>% 
   add_row(term = c("Age", add_indent("14")), 
           estimate = c("", "*Reference*")) %>% 
-  add_row(term = c("Year of study elibility, group level", "Year of study elibility, individual level"),
+  add_row(term = c("Year of study eligibility, group level", "Year of study eligibility, individual level"),
           estimate = c("", "")) %>% 
   mutate(term = term %>% 
            factor(levels = c("Policy change\u2020", add_indent(c("Pre-change", "Post-change")), "Age",
                              add_indent(14:19), "Non-UK born incidence rate (per standard deviation)",
-                             "Year of study elibility, group level",
+                             "Year of study eligibility, group level",
                              add_indent("Intercept (standard deviation)"),
-                             "Year of study elibility, individual level",
+                             "Year of study eligibility, individual level",
                              add_indent(2000:2010)))) %>% 
   arrange(term) %>%
   mutate(term = as.character(term))
@@ -681,16 +685,16 @@ UKBornTarTab <- BestFitTargetedUKBorn[[3]] %>%
           estimate = c("", "*Reference*")) %>% 
   add_row(term = c("Age", add_indent(0)), 
           estimate = c("", "*Reference*")) %>% 
-  add_row(term = c("Year of study elibility, group level", 
-                   "Year of study elibility, individual level"),
+  add_row(term = c("Year of study eligibility, group level", 
+                   "Year of study eligibility, individual level"),
           estimate = c("", "")) %>% 
   mutate(term = term %>% 
            factor(levels = c("Policy change\u2020", add_indent(c("Pre-change", "Post-change")),
                              "Age", add_indent(0:5),
                              "UK born incidence rate (per standard deviation)",
-                             "Year of study elibility, group level",
+                             "Year of study eligibility, group level",
                              add_indent("Intercept (standard deviation)"),
-                             "Year of study elibility, individual level",
+                             "Year of study eligibility, individual level",
                              add_indent(2000:2010)))) %>% 
   arrange(term) %>% 
   mutate(term = as.character(term))
@@ -769,7 +773,7 @@ Whilst little work has been done to assess the impact of the 2005 change in BCG 
 
 This study indicates that the change in England's BCG vaccination policy was associated with a modest increase in incidence in the UK born that were relevant to the school-age vaccination programme, and with a small reduction in incidence in the UK born that were relevant to the high-risk neonatal vaccination programme, although both these estimates had wide credible intervals. We found stronger evidence of an association between the change in policy and a decrease in incidence rates in the non-UK born populations relevant to both programmes. This suggests that the change of vaccination policy to target high-risk neonates may have resulted in an increased focus on high-risk non-UK born individuals who may not have been the direct targets of the vaccination programme. Further validation is required using alternative study designs, but this result should be considered when vaccination policy changes are being considered. However, they should be interpreted as carefully, especially in the non-UK born, as we could not fully rule out the impact of other TB control measures that may have been changed at the same time as vaccination policy. The severity of TB disease is known to differ across age groups with children having a higher incidence of TB meningitis, which can lead to negative outcomes, than other age groups[@PHE2016a]. This variation should also be considered when evaluating these results.
 
-It is well established that interventions against infectious diseases, such as TB, should be evaluated not only for their direct effects but also for future indirect effects via ongoing transmission. Statistical approaches such as those used in this paper are not appropriate for capturing these future indirect effects, and instead dynamic disease models should be used. In addition, this study could not evaluate the impact of the neonatal programme on the high-risk population it targets, due to a lack of reliable data. Improved coverage data for the BCG programme is required to more fully evaluate its ongoing impact. Finally, the results from this study could be combined with estimates of the impact of TB disease, stratified by age, to give an estimate of the overall impact of the change in policy that accounts for the severity of disease.
+It is well established that interventions against infectious diseases, such as TB, should be evaluated not only for their direct effects but also for future indirect effects via ongoing transmission. Statistical approaches such as those used in this paper are not appropriate for capturing these future indirect effects, and instead dynamic disease models should be used. In addition, this study could not evaluate the impact of the neonatal programme on the high-risk population it targets, due to a lack of reliable data. Improved coverage data for the BCG programme is required to more fully evaluate its ongoing impact. As only 5 years of follow up data was available - and BCG vaccination has been shown to provide long lasting protection in the UK - repeating this study once more data is available may alter the findings[@Nguipdop-Djomo2016]. For this reason this study has been implemented with reproducibility in mind - please see the code for details. Finally, the results from this study could be combined with estimates of the impact of TB disease, stratified by age, to give an estimate of the overall impact of the change in policy that accounts for the severity of disease.
 
 **Acknowledgements**
 
