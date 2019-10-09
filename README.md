@@ -11,19 +11,23 @@ Abstract
 
 ### Background
 
-In 2005, England changed from universal Bacillus Calmette–Guérin (BCG) vaccination of school-age children to targeted BCG vaccination of high-risk children at birth.
+In 2005, England changed from universal Bacillus Calmette–Guérin (BCG) vaccination of school-age children to targeted BCG vaccination of high-risk neonates.
 
-#### Methods
+### Aim
 
-We combined notification data from the Enhanced Tuberculosis Surveillance system, with demographic data from the Labour Force Survey to construct retrospective cohorts of individuals in England relevant to both the universal, and targeted vaccination programmes between Jan 1, 2000 and Dec 31, 2010. For each cohort, we estimated incidence rates over a 5 year follow-up period and used Poisson and Negative Binomial regression models in order to estimate the impact of the change in policy on TB.
+Estimate the impact of the 2005 change in BCG policy on incidence rates in the targeted populations of England using an observational study.
+
+### Methods
+
+We combined notifications from the Enhanced Tuberculosis Surveillance system, with demographic data from the Labour Force Survey to construct retrospective cohorts relevant to both the universal, and targeted vaccination between Jan 1, 2000 and Dec 31, 2010. We then estimated incidence rates over a 5 year follow-up period and used regression modelling to estimate the impact of the change in policy on TB.
 
 ### Results
 
-In the non-UK born, we found evidence for an association between a reduction in incidence rates and the change in BCG policy (school-age IRR: 0.74 (95%CI 0.61, 0.88), neonatal IRR: 0.62 (95%CI 0.44, 0.88)). We found some evidence that the change in BCG policy was associated with a increase in incidence rates in the UK born school-age population (IRR: 1.08 (95%CI 0.97, 1.19)) and weaker evidence of an association with a reduction in incidence rates in UK born neonates (IRR: 0.96 (95%CI 0.82, 1.14)). Overall, we found that the change in BCG policy was associated with directly preventing 385 (95% CI -105, 881) TB cases.
+In the non-UK born, we found evidence for an association between a reduction in incidence rates and the change in BCG policy (school-age incidence rate ratio (IRR): 0.74 (95% credible interval (CrI) 0.61,0.88), neonatal IRR: 0.62 (95%CrI 0.44,0.88)). We found some evidence that the change in policy was associated with an increase in incidence rates in the UK born school-age population (IRR: 1.08 (95%CrI 0.97,1.19)) and weaker evidence of an association with a reduction in incidence rates in UK born neonates (IRR: 0.96 (95%CrI 0.82,1.14)). Overall, we found that the change in policy was associated with directly preventing 385 (95%CrI -105,881) cases.
 
 ### Conclusions
 
-Withdrawing universal vaccination at school-age and targeting BCG vaccination towards high-risk neonates was associated with reduced incidence of TB in England. This was largely driven by reductions in the non-UK born. There was a slight increase in UK born school-age cases.
+Withdrawing universal vaccination at school-age and targeting vaccination towards high-risk neonates was associated with reduced incidence of TB. This was largely driven by reductions in the non-UK born with cases increasing in the UK born.
 
 Reproducibility
 ---------------
