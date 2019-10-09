@@ -35,7 +35,7 @@ GENERAL
   
 - For all Figure and Table titles, when possible, please indicate at the end of the title, the geographical area, period and total number of items covered by the illustration. E.g. Table 1: Summary of relevance and eligibility criteria for each cohort, United Kingdom, 2000-2010 (n = xxx individuals) 
 
-*We have added location and temporal information to all studies. As this was a retrospective whole population based study we are not clear that sample sizes are useful in this instance (as they are the whole population meeting the cohort critiera which is age based). We are happy to add this if your feel this is meaningful*
+*We have added location and temporal information to all tables/figures. As this was a retrospective whole population based study we are not clear that sample sizes are useful in this instance (as they are the whole population meeting the cohort critiera which is age based). We are happy to add this if your feel this is meaningful.*
 
 - Please check the overall text versus the tables for the name of the intervals (e.g. 95% confidence intervals vs 95% credible intervals). To give an example: In the abstract and in the main text subsection called ‘Adjusted estimates of the effects of the change in policy on school-age children’ there is ‘IRR: 0.74 (95%CI 0.61, 0.88)’ but in the table 2 there is ‘0.74 (0.61, 0.88)’ defined as IRR (95% CrI) CrI: Credible interval. 
 
@@ -52,7 +52,7 @@ METHODS
 Data sources 
 - Does the Labour Force Survey record only the number of adults of working age (employed or unemployed) in the country, or does it record more people than these (e.g. their family members such as children)? Please describe the population and demographics recorded in the Labour Force Survey in more detail. 
 
-*The LFS is the largest household study in the UK. Whilst it is used primarily to estimate unemployment rates it is also designed to be used by local governments etc. to understand the structure of their population. It therefore provides some of the best available yearly population estimates that are stratified by ethnicity, UK birth status, and age. A caveat to this is that it may not capture the older adult poplulation well. However, this was not relevant to this study. We have addded these additional detials to the manuscript.*
+*The LFS is the largest household study in the UK. Whilst it is used primarily to estimate unemployment rates it is also designed to be used by local governments etc. to understand the structure of their population. It therefore provides some of the best available yearly population estimates that are stratified by ethnicity, UK birth status, and age. A caveat to this is that it may not capture the older adult poplulation well. However, this was not relevant to this study. We have added these additional detials to the manuscript.*
 
 Statistical methods
 
@@ -64,7 +64,7 @@ Ethical statement
 
 - An ethical statement should be included (https://www.eurosurveillance.org/for-authors#ethical%20statement); if ethical approval was not needed, this should be stated in the manuscript. In this case, if possible, it should be please explained why. 
 
-*We have attended an ethical statement*
+*We have added an ethical statement*
 
 RESULTS 
 
@@ -76,7 +76,7 @@ RESULTS
 
 This is an interesting paper in which the authors address a key TB control issue which is measuring the impact of BCG policy change in the incidence of tuberculosis in children. Whether and when targeted BCG vaccination should replace universal vaccination depends on several factors and may be a matter of discussion within national TB control programs, although in Europe most countries have a targeted BCG policy. The question is worthwhile investigating and discussing. I suggest publication in Eurosurveillance provided that the minor changes suggested are taken into account. HOWEVER, given the importance of the statistical methods in this analysis, which I do not feel confident to analyse, I recommend that a tough review of this part, and the results, be made by a statistician, which opinion is crucial to decide whether the paper is able to be published or not. 
 
-*Thank you for your helpful review comments. We agree that understanding when/if targeted vaccination should be used rather than universal vaccination is a key TB control issue. *
+*Thank you for your helpful comments. We agree that understanding when/if targeted vaccination should be used rather than universal vaccination is a key TB control issue. *
 
 Introduction 
 
@@ -111,7 +111,7 @@ Discussion
 
 1.	BCG protects mainly against severe disease (meningitis). This point is not discussed at all. An additional analysis could have investigated the impact of policy change on the incidence of meningeal TB in children, which could have broaden the consequences of policy change in the epidemiology of TB in children. Maybe a word on this should be said in Introduction or Discussion. 
 
-*We agree that considering disease severity stratified by age is an important issue and could be addressed in a follow up study. We have added a comments detailing this to the discussion. We disagree on the evidence that the BCG protects mainly against severe disease in the UK where there is good evidence of strong protection against all disease with no evidence of protection weakening with increased age at vaccination. However, we do agree that this is relevant in other contexts.*
+*We agree that considering disease severity stratified by age is an important issue and could be addressed in a follow up study. We have added comments detailing this to the discussion. We disagree on the evidence that the BCG protects mainly against severe disease in the UK where there is good evidence of strong protection against all disease with no evidence of protection weakening with increased age at vaccination. However, we do agree that this is relevant in other contexts.*
 
 2.	Other interventions may decrease TB incidence, such as a better screening, a change in screening policy in migrants, a better case management…This is not discussed. Could these potential interventions have also played a role in the results presented here? 
 
@@ -134,7 +134,7 @@ Discussion
 
 Thank you for providing an excellent overview on the effects of the policy changes in BCG vaccination in England. 
 
-*Thank you this review.*
+*Thank you for this review.*
 
 
 ## Authors' response to Reviewer #3:
@@ -149,7 +149,7 @@ From the switch from universal adolescent vaccination to selective (largely the 
 The authors created 8 cohorts, each for a 5-year follow-up, using tuberculosis surveillance data for the numerator and Labor Force Survey data for the population denominator. These procedures are all clearly explained. As it gets substantially steeper and difficult to follow for the more general user's consumption is when the models are elaborated in the same paragraph. Perhaps it would help to split the elements of describing the basic epidemiology of incidence rates and ratios from the latter into two separate paragraphs, so that those unfamiliar with "negative binomial models", "penalised by model complexity", and the intricacies of Bayesian estimation with Markov Chain Monte Carlo, etc. This would clarify that here is a basic methodology, and here is a complex modeling description, the former for every epidemiologist, the latter only for the seasoned expert in statistical modeling using special techniques. I concur that it should and has to be there, but the more basic working techniques of calculation might be preferably "visually" separated from complex modeling techniques, notably when unexplained acronyms such as "GBM" are interspersed that do not help in easily following what the modeler actually did. Nor does it become that clear why exactly these models were chosen and not something else. The reader should probably have some inkling what the motivation for model selection is. 
 
 
-*We agree that it is important that all readers can easily follow the analysis. We have split the modelling section as you suggested into a non-technical overview and a more technical discussion of the approach. As per the editor comment we have carefully reviewed the use of abbreviations and added definitions where missing.*spel 
+*We agree that it is important that all readers can easily follow the analysis. We have split the modelling section as you suggested into a non-technical overview and a more technical discussion of the approach. As per the editor comment we have carefully reviewed the use of abbreviations and added definitions where missing.* 
  
 In any case, it becomes again clear that the procedures resulted in obtaining adjusted estimates of the effects of the policy change from universal adolescent to selective neonatal vaccination. The effect was measurable but seemingly modest. Apparently, the model required adjustments by including the change in policy, age, incidence rates in the non-UK born, and year of eligibility as a random effect. To the non-initiated, all these elements make intuitively sense and reflect the complexity of interplaying variables that all played a substantial role in what was finally observable. Such complexity may also contribute to variability and thus uncertainty about the unbiased estimation of the magnitude of the observable effect. However, the authors later also state that all models (does this refer only to the non-UK born?) that included at least age in the adjustment resulted in comparable effects. As parsimony is king in all modeling, perhaps it could be stated more explicitly that always the model with the minimum required variables was used and perhaps why recourse was taken to retaining more complex models if a more simple one gave actually comparable results. Perhaps I am missing here something, but then it would indeed be useful to review the sum of the modeling exercises to the point. 
 
