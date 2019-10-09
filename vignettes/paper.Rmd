@@ -71,7 +71,7 @@ Ellen Brooks-Pollock, Bristol Medical School: Population Health Sciences, Univer
 
 **Correspondence to:** Sam Abbott, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol BS8 2BN, UK; sam.abbott@bristol.ac.uk; 01173310185
 
-**WORD COUNT:** **Title** 16 (20), **Abstract** 250 (250), **Paper** 2990 (3500)  
+**WORD COUNT:** **Title** 16 (20), **Abstract** 250 (250), **Paper** 327 (3500)  
 
 
 ##### PAGEBREAK
@@ -80,7 +80,7 @@ Ellen Brooks-Pollock, Bristol Medical School: Population Health Sciences, Univer
 
 **Background** 
 
-In 2005, England changed from universal Bacillus Calmette–Guérin (BCG) vaccination of school-age children to targeted BCG vaccination of high-risk children at birth.
+In 2005, England changed from universal Bacillus Calmette–Guérin (BCG) vaccination of school-age children to targeted BCG vaccination of high-risk neonates.
 
 **Aim**
 
@@ -131,9 +131,9 @@ Although the long term effects of BCG vaccination such as reducing the reactivat
 
 **Data sources**
 
-Data on all notifications from the Enhanced Tuberculosis Surveillance (ETS) system from Jan 1, 2000 to Dec 31, 2015 were obtained from Public Health England (PHE). The ETS is maintained by PHE, and contains demographic, clinical, and microbiological data on all notified cases in England. A descriptive analysis of TB epidemiology in England is published each year, which fully details data collection and cleaning[@PHE2016a]. TB is highly heterogeneous in England with the majority of cases occurring in urban, non-UK born, populations the yearly PHE report contains more descriptive detail[@PHE2016a].
+Data on all notifications from the Enhanced Tuberculosis Surveillance (ETS) system from Jan 1, 2000 to Dec 31, 2015 were obtained from Public Health England (PHE). The ETS is maintained by PHE, and contains demographic, clinical, and microbiological data on all notified cases in England. A descriptive analysis of TB epidemiology in England is published each year, which fully details data collection and cleaning[@PHE2016a]. TB is highly heterogeneous in England with the majority of cases occurring in urban, non-UK born, populations. The yearly PHE report contains more descriptive detail[@PHE2016a].
 
-We obtained yearly population estimates from the April to June Labour Force Survey (LFS) for 2000-2015. The LFS is a household study of the employment circumstances of the UK population, and provides the official measures of employment and unemployment in the UK. It is also used to look at population demographics such as: ethnicity, country of birth, and age. Reporting practices have changed with time so the appropriate variables for age, country of origin, country of birth, and survey weight were extracted from each yearly extract, standardised, and combined into a single data-set.
+We obtained yearly population estimates from the April to June Labour Force Survey (LFS) for 2000-2015. The LFS is a household study of the employment circumstances of the UK population, and provides the official measures of employment and unemployment in the UK. It is also used to study population demographics such as: ethnicity, country of birth, and age. Reporting practices have changed with time so the appropriate variables for age, country of origin, country of birth, and survey weight were extracted from each yearly extract, standardised, and combined into a single data-set.
 
 **Constructing Retrospective cohorts**
 
@@ -164,7 +164,7 @@ data_frame(`Cohort` = c("Cohort 1", "Comparison cohort 1", "Cohort 1", "Comparis
   arrange(desc(`Vaccination programme`))  %T>%
   save_formated("cohorts") %>% 
   pretty_table(label = "DefCohorts",
-               caption = "Summary of relevance and eligibility criteria for each cohort, England, 2000-2010 (n = xxx individuals).",
+               caption = "Summary of relevance and eligibility criteria for each cohort, England, 2000-2010.",
                footer = "* Eligible signifies that the cohort fit the criteria for the programme and entered the study during the time period it was in operation not that the cohort was vaccinated by the programme.",
               split.table = 150,
               justify = justify_char_numeric(ncol(.), Character = 1:4, Numeric = 5:6))
@@ -216,7 +216,7 @@ source(file.path("scripts", "exploratory_plots.R"))
 
 We estimated incidence rates (with 95% confidence intervals) by year, age and place of birth as (number of cases) divided by (number of individuals of corresponding age). UK birth status was incomplete, with some evidence of a missing not at random mechanism. We imputed the missing data using a gradient boosting method (GBM; see supplementary information). We then used descriptive analysis to describe the observed trends in age-specific incidence rates over the study period, comparing incidence rates in the study populations relevant to both vaccination programmes before and after the change in BCG policy.
 
-We calculated Incidence Rate Ratios (IRRs) with 95% credible intervals (95% CrIs) for the change in incidence rates associated with the change in BCG vaccination policy (modelled as a binary breakpoint at the start of 2005) for both the UK born and non-UK born populations that were relevant to the universal programme, and for the targeted programme using a range of models. We considered the following covariates: age[@PHE2016a; @Zwerling2011], incidence rates in both the UK born and non-UK born who were not in the age group of interest[@PHE2016a], and year of study entry (as a random intercept). We evaluated a range of models using a statistically rigorous criterion, that accounted for model fit and complexity, for model selection.
+We calculated Incidence Rate Ratios (IRRs) with 95% credible intervals (CrIs) for the change in incidence rates associated with the change in BCG vaccination policy (modelled as a binary breakpoint at the start of 2005) for both the UK born and non-UK born populations that were relevant to the universal programme, and for the targeted programme using a range of models. We considered the following covariates: age[@PHE2016a; @Zwerling2011], incidence rates in both the UK born and non-UK born who were not in the age group of interest[@PHE2016a], and year of study entry (as a random intercept). We evaluated a range of models using a statistically rigorous criterion, that accounted for model fit and complexity, for model selection.
 
 **Statistical modelling details**
 
@@ -574,7 +574,7 @@ EstMagImpactBestModel <- AllAnalysisDf %>%
 
 **Ethical statement**
 
-Ethical approval was not needed for this survey.
+Ethical approval was not needed for this study.
 
 #####PAGEBREAK
 
