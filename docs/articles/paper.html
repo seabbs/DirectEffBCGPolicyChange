@@ -86,13 +86,13 @@
 <p>Nicky Welton, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol, UK</p>
 <p>Ellen Brooks-Pollock, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol, UK</p>
 <p><strong>Correspondence to:</strong> Sam Abbott, Bristol Medical School: Population Health Sciences, University of Bristol, Bristol BS8 2BN, UK; <a href="mailto:sam.abbott@bristol.ac.uk">sam.abbott@bristol.ac.uk</a>; 01173310185</p>
-<p><strong>WORD COUNT:</strong> <strong>Title</strong> 16 (20), <strong>Abstract</strong> 250 (250), <strong>Paper</strong> 2990 (3500)</p>
+<p><strong>WORD COUNT:</strong> <strong>Title</strong> 16 (20), <strong>Abstract</strong> 250 (250), <strong>Paper</strong> 327 (3500)</p>
 <div id="pagebreak" class="section level5">
 <h5 class="hasAnchor">
 <a href="#pagebreak" class="anchor"></a>PAGEBREAK</h5>
 <p><strong>ABSTRACT</strong></p>
 <p><strong>Background</strong></p>
-<p>In 2005, England changed from universal Bacillus Calmette–Guérin (BCG) vaccination of school-age children to targeted BCG vaccination of high-risk children at birth.</p>
+<p>In 2005, England changed from universal Bacillus Calmette–Guérin (BCG) vaccination of school-age children to targeted BCG vaccination of high-risk neonates.</p>
 <p><strong>Aim</strong></p>
 <p>Estimate the impact of the 2005 change in BCG policy on incidence rates in the targeted populations of England using an observational study.</p>
 <p><strong>Methods</strong></p>
@@ -124,8 +124,8 @@
 <a href="#pagebreak-2" class="anchor"></a>PAGEBREAK</h5>
 <p><strong>METHODS</strong></p>
 <p><strong>Data sources</strong></p>
-<p>Data on all notifications from the Enhanced Tuberculosis Surveillance (ETS) system from Jan 1, 2000 to Dec 31, 2015 were obtained from Public Health England (PHE). The ETS is maintained by PHE, and contains demographic, clinical, and microbiological data on all notified cases in England. A descriptive analysis of TB epidemiology in England is published each year, which fully details data collection and cleaning<span class="citation">[1]</span>. TB is highly heterogeneous in England with the majority of cases occurring in urban, non-UK born, populations the yearly PHE report contains more descriptive detail<span class="citation">[1]</span>.</p>
-<p>We obtained yearly population estimates from the April to June Labour Force Survey (LFS) for 2000-2015. The LFS is a household study of the employment circumstances of the UK population, and provides the official measures of employment and unemployment in the UK. It is also used to look at population demographics such as: ethnicity, country of birth, and age. Reporting practices have changed with time so the appropriate variables for age, country of origin, country of birth, and survey weight were extracted from each yearly extract, standardised, and combined into a single data-set.</p>
+<p>Data on all notifications from the Enhanced Tuberculosis Surveillance (ETS) system from Jan 1, 2000 to Dec 31, 2015 were obtained from Public Health England (PHE). The ETS is maintained by PHE, and contains demographic, clinical, and microbiological data on all notified cases in England. A descriptive analysis of TB epidemiology in England is published each year, which fully details data collection and cleaning<span class="citation">[1]</span>. TB is highly heterogeneous in England with the majority of cases occurring in urban, non-UK born, populations. The yearly PHE report contains more descriptive detail<span class="citation">[1]</span>.</p>
+<p>We obtained yearly population estimates from the April to June Labour Force Survey (LFS) for 2000-2015. The LFS is a household study of the employment circumstances of the UK population, and provides the official measures of employment and unemployment in the UK. It is also used to study population demographics such as: ethnicity, country of birth, and age. Reporting practices have changed with time so the appropriate variables for age, country of origin, country of birth, and survey weight were extracted from each yearly extract, standardised, and combined into a single data-set.</p>
 <p><strong>Constructing Retrospective cohorts</strong></p>
 <p>We constructed retrospective cohorts of TB cases and individuals using the ETS and the LFS. TB cases were extracted from the ETS based on date of birth and date of TB notification.</p>
 <p>Cohort 1: individuals aged 14 between 2000 and 2004, who were notified with TB whilst aged between 14 and 19 years old.</p>
@@ -134,7 +134,7 @@
 <p>Comparison cohort 2: individuals born between 2000 and 2004, who were notified with TB whilst aged 0-5 years old</p>
 <p>Cohorts were stratified by vaccination programme using age criteria and then stratified further by whether the scheme was in place during the time period they entered the study. Each cohort was further stratified by UK birth status, with both non-UK born and UK born cases assumed to have been exposed to England’s vaccination policy. Corresponding population cohorts were calculated using the LFS population estimates, resulting in 8 population level cohorts, each with 5 years of follow up (Table 1).</p>
 <table class="table">
-<caption>Table 1: Summary of relevance and eligibility criteria for each cohort, England, 2000-2010 (n = xxx individuals).</caption>
+<caption>Table 1: Summary of relevance and eligibility criteria for each cohort, England, 2000-2010.</caption>
 <colgroup>
 <col width="22%">
 <col width="16%">
@@ -228,13 +228,13 @@
 </table>
 <p><strong>Statistical methods overview</strong></p>
 <p>We estimated incidence rates (with 95% confidence intervals) by year, age and place of birth as (number of cases) divided by (number of individuals of corresponding age). UK birth status was incomplete, with some evidence of a missing not at random mechanism. We imputed the missing data using a gradient boosting method (GBM; see supplementary information). We then used descriptive analysis to describe the observed trends in age-specific incidence rates over the study period, comparing incidence rates in the study populations relevant to both vaccination programmes before and after the change in BCG policy.</p>
-<p>We calculated Incidence Rate Ratios (IRRs) with 95% credible intervals (95% CrIs) for the change in incidence rates associated with the change in BCG vaccination policy (modelled as a binary breakpoint at the start of 2005) for both the UK born and non-UK born populations that were relevant to the universal programme, and for the targeted programme using a range of models. We considered the following covariates: age<span class="citation">[1,7]</span>, incidence rates in both the UK born and non-UK born who were not in the age group of interest<span class="citation">[1]</span>, and year of study entry (as a random intercept). We evaluated a range of models using a statistically rigorous criterion, that accounted for model fit and complexity, for model selection.</p>
+<p>We calculated Incidence Rate Ratios (IRRs) with 95% credible intervals (CrIs) for the change in incidence rates associated with the change in BCG vaccination policy (modelled as a binary breakpoint at the start of 2005) for both the UK born and non-UK born populations that were relevant to the universal programme, and for the targeted programme using a range of models. We considered the following covariates: age<span class="citation">[1,7]</span>, incidence rates in both the UK born and non-UK born who were not in the age group of interest<span class="citation">[1]</span>, and year of study entry (as a random intercept). We evaluated a range of models using a statistically rigorous criterion, that accounted for model fit and complexity, for model selection.</p>
 <p><strong>Statistical modelling details</strong></p>
 <p>We first investigated a univariable Poisson model, followed by combinations of covariates (supplementary table S1). We also investigated a Negative Binomial model adjusting for the same covariates as in the best fitting Poisson model. The models were estimated with a Bayesian approach using Markov Chain Monte Carlo (MCMC), with default weakly informative priors (see supplementary information). Model fit, penalised by model complexity, was assessed using the leave one out cross validation information criterion (LOOIC) and its standard error<span class="citation">[12]</span>. Models were ranked by goodness of fit, using their LOOIC, with a smaller LOOIC indicating a better fit to the data after adjusting for the complexity of the model. No formal threshold for a change in the LOOIC was used, with changes in the LOOIC being evaluated in the context of their standard error. The inclusion of the change in policy in the best fitting model was tested by refitting the model excluding the change in policy and estimating the improvment in the LOOIC. Once the best fitting model had been identified we estimated the number of cases prevented, from 2005 until 2015, for each vaccination programme in the study population relevant to that programme (see supplementary information).</p>
 <p><strong>Implementation</strong></p>
 <p>R 3.5.2 was used for all analysis<span class="citation">[13]</span>. Missing data imputation using a GBM was implemented using the h2o package<span class="citation">[14]</span>. Incidence rates, with 95% confidence intervals, were calculated using the epiR package<span class="citation">[15]</span>. The brms package<span class="citation">[16]</span>, and STAN<span class="citation">[17]</span>, was used to perform MCMC. Models were run until convergence (4 chains with a burn in of 10,000, and 10,000 sampled iterations each), with convergence being assessed using trace plots and the R hat diagnostic<span class="citation">[17]</span>. All numeric confounders were centered and scaled by their standard deviation, and age was adjusted for using single year of age categories.</p>
 <p><strong>Ethical statement</strong></p>
-<p>Ethical approval was not needed for this survey.</p>
+<p>Ethical approval was not needed for this study.</p>
 </div>
 <div id="pagebreak-3" class="section level5">
 <h5 class="hasAnchor">
