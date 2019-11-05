@@ -11,15 +11,15 @@ Abstract
 
 ### Background
 
-In 2005, England changed from universal Bacillus Calmette–Guérin (BCG) vaccination of school-age children to targeted BCG vaccination of high-risk neonates.
+In 2005 in England, universal Bacillus Calmette–Guérin (BCG) vaccination of school-age children was replaced by targeted BCG vaccination of high-risk neonates.
 
 ### Aim
 
-Estimate the impact of the 2005 change in BCG policy on incidence rates in the targeted populations of England using an observational study.
+Estimate the impact of the 2005 change in BCG policy on tuberculosis incidence rates in England.
 
 ### Methods
 
-We combined notifications from the Enhanced Tuberculosis Surveillance system, with demographic data from the Labour Force Survey to construct retrospective cohorts relevant to both the universal, and targeted vaccination between Jan 1, 2000 and Dec 31, 2010. We then estimated incidence rates over a 5 year follow-up period and used regression modelling to estimate the impact of the change in policy on TB.
+We conducted an observational study by combining notifications from the Enhanced Tuberculosis Surveillance system, with demographic data from the Labour Force Survey to construct retrospective cohorts relevant to both the universal, and targeted vaccination between Jan 1, 2000 and Dec 31, 2010. We then estimated incidence rates over a 5 year follow-up period and used regression modelling to estimate the impact of the change in policy on TB.
 
 ### Results
 

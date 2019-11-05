@@ -80,15 +80,15 @@ Ellen Brooks-Pollock, Bristol Medical School: Population Health Sciences, Univer
 
 **Background** 
 
-In 2005, England changed from universal Bacillus Calmette–Guérin (BCG) vaccination of school-age children to targeted BCG vaccination of high-risk neonates.
+In 2005 in England, universal Bacillus Calmette–Guérin (BCG) vaccination of school-age children was replaced by targeted BCG vaccination of high-risk neonates.
 
 **Aim**
 
-Estimate the impact of the 2005 change in BCG policy on incidence rates in the targeted populations of England using an observational study. 
+Estimate the impact of the 2005 change in BCG policy on tuberculosis incidence rates in England. 
 
 **Methods** 
 
-We combined notifications from the Enhanced Tuberculosis Surveillance system, with demographic data from the Labour Force Survey to construct retrospective cohorts relevant to both the universal, and targeted vaccination between Jan 1, 2000 and Dec 31, 2010. We then estimated incidence rates over a 5 year follow-up period and used regression modelling to estimate the impact of the change in policy on TB.
+We conducted an observational study by combining notifications from the Enhanced Tuberculosis Surveillance system, with demographic data from the Labour Force Survey to construct retrospective cohorts relevant to both the universal, and targeted vaccination between Jan 1, 2000 and Dec 31, 2010. We then estimated incidence rates over a 5 year follow-up period and used regression modelling to estimate the impact of the change in policy on TB.
 
 **Results** *bottom of paper*
 
@@ -554,8 +554,8 @@ EstMagImpactBestModel <- AllAnalysisDf %>%
                    PolicyChange = c("Post change", "Post change"))) %>% 
                    {bind_rows(., group_by(., VacScheme) %>% 
                                  summarise_if(is.numeric, ~sum(.)) %>% 
-                                 mutate(CoB = ""))}  %>% 
-  mutate(CoB = CoB %>% factor(levels = c("", "UK born", "Non-UK born"))) %>% 
+                                 mutate(CoB = "All"))}  %>% 
+  mutate(CoB = CoB %>% factor(levels = c("All", "UK born", "Non-UK born"))) %>% 
   {bind_rows(., group_by(., CoB) %>% 
                mutate_at(.vars = vars(estimate, lower, upper), 
                          funs(case_when(VacScheme %in% "Universal school-age (14)" ~ (. * -1),
@@ -568,13 +568,16 @@ EstMagImpactBestModel <- AllAnalysisDf %>%
            as.character %>%
            replace(duplicated(VacScheme), ""),
          CoB = as.character(CoB)) %>% 
+  mutate(VacScheme = VacScheme %>% 
+           {ifelse(. %in% "Universal school-age (14)", "Universal school-age (vaccination at 14)", .)} %>% 
+           {ifelse(. %in% "Targeted high-risk neonates (vaccination at birth)", "Targeted high-risk neonates (vaccination at birth)", .)}) %>% 
   select(`Vaccination Programme` = VacScheme, `Birth Status` = CoB, `Cases Prevented (95% CrI*)` = prev_cases, `Notified Cases` = cases)
 ```
 
 
 **Ethical statement**
 
-Ethical approval was not needed for this study.
+Ethical approval was not required for this study which used anonymized secondary data sources only.
 
 #####PAGEBREAK
 
@@ -582,9 +585,9 @@ Ethical approval was not needed for this study.
 
 **Descriptive analysis**
 
-During the study period there were `r TotalStudyCases  %>% format(big.mark =",")` notifications of TB in England, of which `r CompleteBirthStatusPer` had their birth status recorded. Of notifications with a known birth status `r CasesUKbornPer` were UK born, in comparison to `r per_imp_ukborn` in cases with an imputed birth status. Trends in incidence rates varied by age group and UK birth status (see supplementary information). During the study period, there were `r CasesUni` UK born cases and `r NUKCasesUni` non-UK born cases in individuals relevant to the universal schools scheme, and `r CasesTar` UK born cases and `r NUKCasesTar` non-UK born cases relevant to the targeted neonatal scheme, who fit our age criteria. Univariable evidence for differences between mean incidence rates before and after the change in BCG policy in the UK born was weak. In the non-UK born incidence rates were lower after the change in BCG policy in both the cohort relevant to the universal school-age scheme and the cohort relevant to the targeted neonatal scheme (`r pretty_figref("CohortIncRates" )`).
+During the study period there were `r TotalStudyCases  %>% format(big.mark =",")` notifications of TB in England, of which `r CompleteBirthStatusPer` had their birth status recorded. Of notifications with a known birth status `r CasesUKbornPer` were UK born, while among notification with an imputed birth status, `r per_imp_ukborn` were UK born. Trends in incidence rates varied by age group and UK birth status (see supplementary information). During the study period, there were `r CasesUni` UK born cases and `r NUKCasesUni` non-UK born cases in individuals relevant to the universal schools scheme, and `r CasesTar` UK born cases and `r NUKCasesTar` non-UK born cases relevant to the targeted neonatal scheme, who fit our age criteria. Univariable evidence for differences between mean incidence rates before and after the change in BCG policy in the UK born was weak. In the non-UK born incidence rates were lower after the change in BCG policy in both the cohort relevant to the universal school-age scheme and the cohort relevant to the targeted neonatal scheme (`r pretty_figref("CohortIncRates" )`).
 
-```{r cohort-summary-plot, dpi = 320, messages = FALSE, warnings = FALSE, fig.cap = pretty_figref("CohortIncRates", paste0("Mean incidence rates per 100,000, with 95% confidence intervals for each retrospective cohort (see ", pretty_tabref("DefCohorts", inline = TRUE), " for cohort definitions), stratified by the vaccination policy and UK birth status. The top and bottom panels are on different scales in order to highlight trends in incidence rates over time."))}
+```{r cohort-summary-plot, dpi = 320, messages = FALSE, warnings = FALSE, fig.cap = pretty_figref("CohortIncRates", paste0("Mean incidence rates per 100,000, with 95% confidence intervals for each retrospective cohort (see ", pretty_tabref("DefCohorts", inline = TRUE), " for cohort definitions), stratified by the vaccination policy and UK birth status for England, using surveillance data from 2000 to 2015. The top and bottom panels are on different scales in order to highlight trends in incidence rates over time."))}
 GraphSumPolicyChangeChange
 
 ggsave("formated-results/figure-1.png")
@@ -655,7 +658,7 @@ UniversalTab <- UKBornUniTab %>%
 UniversalTab %T>%
   save_formated("universal-main-results") %>% 
   pretty_table(label = "BestFitUni", 
-               caption = paste0("Summary table of incidence rate ratios, in the UK born and non-UK born cohorts relevant to the universal school-age scheme, using the best fitting models as determined by comparison of the LOOIC (UK born: ", str_replace(BestFitUniversalUKBorn[[2]], "\\.", ""), " (" , BestFitUniversalUKBorn[[1]], "), ", "Non-UK born: ", str_replace(BestFitUniversalNonUKBorn[[2]], "\\.", ""), " (", BestFitUniversalNonUKBorn[[1]], ")). Model terms which were not included in a given cohort are indicated using a hyphen (-). England, 2000-2015"), 
+               caption = paste0("Summary table of incidence rate ratios, in the UK born and non-UK born cohorts relevant to the universal school-age scheme, using the best fitting models as determined by comparison of the LOOIC (UK born: ", str_replace(BestFitUniversalUKBorn[[2]], "\\.", ""), " (" , BestFitUniversalUKBorn[[1]], "), ", "Non-UK born: ", str_replace(BestFitUniversalNonUKBorn[[2]], "\\.", ""), " (", BestFitUniversalNonUKBorn[[1]], ")). Model terms which were not included in a given cohort are indicated using a hyphen (-). Data relate to England, 2000-2015"), 
                footer = paste0(
                  "* Incidence Rate Ratio (95% credible interval)\n",
                  "\u2020 There was an improvement in the LOOIC score of ", BestFitUniversalUKBorn[[5]]$pretty_diff_looic, " from dropping the change in policy from the model in the UK born cohort and a ", BestFitUniversalNonUKBorn[[5]]$pretty_diff_looic, " improvement in the non-UK born cohort.", "LOOIC - Leave one out cross validation information criterion; SE - Standard error"),
@@ -738,7 +741,7 @@ TarTab[12, ] <- tmp[11,]
 TarTab %T>%
   save_formated("targeted-main-results") %>% 
   pretty_table(label = "BestFitTar", 
-               caption = paste0("Summary table of incidence rate ratios, in the UK born and non-UK born cohorts relevant to the targeted neonatal scheme, using the best fitting models as determined by comparison of the LOOIC (UK born: ", str_replace(BestFitTargetedUKBorn[[2]], "\\.", ""), " (" , BestFitTargetedUKBorn[[1]], "), ", "Non-UK born: ", str_replace(BestFitTargetedNonUKBorn[[2]], "\\.", ""), " (", BestFitTargetedNonUKBorn[[1]], ")). Model terms which were not included in a given cohort are indicated using a hyphen (-). England, 2000-2015"), 
+               caption = paste0("Summary table of incidence rate ratios, in the UK born and non-UK born cohorts relevant to the targeted neonatal scheme, using the best fitting models as determined by comparison of the LOOIC (UK born: ", str_replace(BestFitTargetedUKBorn[[2]], "\\.", ""), " (" , BestFitTargetedUKBorn[[1]], "), ", "Non-UK born: ", str_replace(BestFitTargetedNonUKBorn[[2]], "\\.", ""), " (", BestFitTargetedNonUKBorn[[1]], ")). Model terms which were not included in a given cohort are indicated using a hyphen (-). Data relate to England, 2000-2015"), 
                footer = paste0(
                  "* Incidence Rate Ratio (95% credible interval)\n",
                  "\u2020 There was an improvement in the LOOIC score of ", BestFitTargetedUKBorn[[5]]$pretty_diff_looic, " from dropping the change in policy from the model in the UK born cohort and a ", BestFitTargetedNonUKBorn[[5]]$pretty_diff_looic, " improvement in the non-UK born cohort.", "LOOIC - Leave one out cross validation information criterion; SE - Standard error"),
@@ -754,7 +757,7 @@ We estimate that the change in vaccination policy was associated with preventing
 EstMagImpactBestModel %T>%
   save_formated("estimated-impact") %>% 
   pretty_table(label = "MagPolicyChange", 
-               caption = "Estimated number of cases prevented, from 2005 until 2015, for each vaccination programme in the study population relevant to that programme, using the best fitting model for each cohort. England, 2000-2015", 
+               caption = "Estimated number of cases prevented, from 2005 until 2015, for each vaccination programme in the study population relevant to that programme, using the best fitting model for each cohort. Data relate to England, 2000-2015", 
                footer = "*95% CrI: 95% credible interval, \n\u2020 Estimated total number of cases prevented due to the change in vaccination policy in 2005",
                justify = "llcc", 
                split.table = 200,
@@ -771,9 +774,9 @@ We were unable to estimate the impact of the change in BCG policy after 5 years 
 
 Whilst little work has been done to assess the impact of the 2005 change in BCG vaccination several other studies have estimated the impact of changing BCG vaccination policy, although typically only from universal vaccination of neonates to targeted vaccination of high-risk neonates. A previous study in Sweden found that incidence rates in Swedish-born children increased after high-risk neonatal vaccination was implemented in place of a universal neonatal program, this corresponds with our finding that introducing neonatal vaccination had little impact on incidence rates in UK born neonates. Theoretical approaches have indicated that targeted vaccination of those at high-risk may be optimal in low incidence settings[@Manissero2008]. Our study extends this work by also considering the age of those given BCG vaccination, although we were unable to estimate the impact of a universal neonatal scheme as this has never been implemented nationally in England. It has previously been shown that targeted vaccination programmes may not reach those considered most at risk[@Feiring2016], our findings may support this view as we observed only a small decrease in incidence rates in UK born neonates after the introduction of the targeted neonatal vaccination programme. Alternatively, the effectiveness of the BCG in neonates, in England, may be lower than previously thought as we only observed a small decrease in incidence rates, whilst a previous study estimated BCG coverage at 68% (95%CI 65%, 71%) amongst those eligible for the targeted neonatal vaccination programme[@Nguipdop-Djomo2014].
 
-This study indicates that the change in England's BCG vaccination policy was associated with a modest increase in incidence in the UK born that were relevant to the school-age vaccination programme, and with a small reduction in incidence in the UK born that were relevant to the high-risk neonatal vaccination programme, although both these estimates had wide credible intervals. We found stronger evidence of an association between the change in policy and a decrease in incidence rates in the non-UK born populations relevant to both programmes. This suggests that the change of vaccination policy to target high-risk neonates may have resulted in an increased focus on high-risk non-UK born individuals who may not have been the direct targets of the vaccination programme. Further validation is required using alternative study designs, but this result should be considered when vaccination policy changes are being considered. However, they should be interpreted as carefully, especially in the non-UK born, as we could not fully rule out the impact of other TB control measures that may have been changed at the same time as vaccination policy. The severity of TB disease is known to differ across age groups with children having a higher incidence of TB meningitis, which can lead to negative outcomes, than other age groups[@PHE2016a]. This variation should also be considered when evaluating these results.
+This study indicates that the change in England's BCG vaccination policy was associated with a modest increase in incidence in the UK born that were relevant to the school-age vaccination programme, and with a small reduction in incidence in the UK born that were relevant to the high-risk neonatal vaccination programme, although both these estimates had wide credible intervals. We found stronger evidence of an association between the change in policy and a decrease in incidence rates in the non-UK born populations relevant to both programmes. This suggests that the change of vaccination policy to target high-risk neonates may have resulted in an increased focus on high-risk non-UK born individuals who may not have been the direct targets of the vaccination programme. Further validation is required using alternative study designs, but this result should be considered when vaccination policy changes are being considered. Our results should be interpreted carefully, especially in the non-UK born, as we could not fully rule out the impact of other TB control measures that may have been changed at the same time as vaccination policy. The severity of TB disease is known to differ across age groups with children having a higher incidence of TB meningitis, which can be severe, compared to other age groups[@PHE2016a]. This variation should also be considered when evaluating these results.
 
-It is well established that interventions against infectious diseases, such as TB, should be evaluated not only for their direct effects but also for future indirect effects via ongoing transmission. Statistical approaches such as those used in this paper are not appropriate for capturing these future indirect effects, and instead dynamic disease models should be used. In addition, this study could not evaluate the impact of the neonatal programme on the high-risk population it targets, due to a lack of reliable data. Improved coverage data for the BCG programme is required to more fully evaluate its ongoing impact. As only 5 years of follow up data was available - and BCG vaccination has been shown to provide long lasting protection in the UK - repeating this study once more data is available may alter the findings[@Nguipdop-Djomo2016]. For this reason this study has been implemented with reproducibility in mind - please see the code for details. Finally, the results from this study could be combined with estimates of the impact of TB disease, stratified by age, to give an estimate of the overall impact of the change in policy that accounts for the severity of disease.
+It is well established that interventions against infectious diseases, such as TB, should be evaluated not only for their direct effects but also for future indirect effects via ongoing transmission. Statistical approaches such as those used in this paper are not appropriate for capturing these future indirect effects, and instead dynamic disease models should be used. In addition, this study could not evaluate the impact of the neonatal programme on the high-risk population it targets, due to a lack of reliable data. Improved coverage data for the BCG programme is required to more fully evaluate its ongoing impact. As only 5 years of follow up data were available - and BCG vaccination has been shown to provide long lasting protection in the UK - repeating this study once more data is available may alter the findings[@Nguipdop-Djomo2016]. For this reason this study has been implemented with reproducibility in mind - please see the code for details. Finally, the results from this study could be combined with estimates of the impact of TB disease, stratified by age, to give an estimate of the overall impact of the change in policy that accounts for the severity of disease.
 
 **Acknowledgements**
 
