@@ -15,5 +15,5 @@ extract_inc_ef = function(df, model) {
   df %>% 
     filter(Model %in% model) %>% 
     select(`IRR (CI 95%)*`) %>%
-    unlist %>% pretty_inline_ci(note = "95%CI ")
+    unlist %>% pretty_inline_ci(note = "95%CrI ")
 }
