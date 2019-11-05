@@ -591,6 +591,7 @@ During the study period there were `r TotalStudyCases  %>% format(big.mark =",")
 GraphSumPolicyChangeChange
 
 ggsave("formated-results/figure-1.png")
+ggsave("formated-results/figure-1.pdf")
 ```
 
 **Adjusted estimates of the effects of the change in policy on school-age children**
@@ -913,6 +914,7 @@ From 2000 until 2012 incidence rates in the UK born remained relatively stable b
 GraphStudySpecIncRates
 
 ggsave("formated-results/figure-2.png")
+ggsave("formated-results/figure-2.pdf")
 ```
 
 ##### PAGEBREAK
